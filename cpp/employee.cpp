@@ -22,6 +22,12 @@ Employee::Employee(string inName, int inId)
 }
 
 
+Employee::~Employee()
+{
+	cout <<"Destroying the entry for employee ID: "<< this->empId << endl;
+}
+
+
 void 
 Employee::setName(string inName)
 {

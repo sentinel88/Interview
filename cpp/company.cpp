@@ -5,24 +5,35 @@
 #include <string>
 #include "company.h"
 
+int Company::empCount;
+int global_list_size = _INIT_SIZE;
+
 
 Company::Company()
 {
 	cout << "Inside default constructor" << endl;
 	Name = "Unknown";
 	Location = "Unknown";
-	empCount = -9999;
+	empCount = 0;
 	Payroll = NULL;
 }
 
 
-Company::Company(string inName, string inLocation, int inCount)
+Company::Company(string inName, string inLocation)
 {
 	cout << "Inside parameterized constructor" << endl;
 	Name = inName;
 	Location = inLocation;
-	empCount = inCount;
+	empCount = 0;
 	Payroll = NULL;
+}
+
+
+Company::~Company()
+{
+	cout << "Deleting the company and all its employee entries";
+	if (Payroll != NULL)
+		delete [] Payroll;
 }
 
 
@@ -54,13 +65,6 @@ Company::getLocation() const
 }
 
 
-void
-Company::setCount(int inCount)
-{
-	empCount = inCount;
-}
-
-
 int
 Company::getCount() const
 {
@@ -71,16 +75,47 @@ Company::getCount() const
 void
 Company::addEmployee(Employee inEmp)
 {
+	empCount++;
 }
 
 
 void
-Company::delEmployee(Employee inEmp)
+Company::delEmployee(int inId)
 {
+	int i = 0;
+	Employee *ptr = payroll;
+
+	if (empCount == 0) {
+		cout << "No employees in the company to remove " << endl;
+		return;
+	}
+	for (i = 0; i < empCount; i++) {
+		if (inId == ptr[i]->empId) {
+			cout << "Employee with ID: " << inId << "found. Deleting the entry" << endl;
+			ptr[i]->Name = "Unknown";
+			ptr[i]->empId = 0;
+			empCount--;
+		}
+	}
 }
 
 
 void 
 Company::display() const
 {
+	int i = 0;
+	Employee *ptr = Payroll;
+
+	cout << "Company: " << Name << endl;
+	cout << "Location: " << Location << endl;
+	cout << "EmpCount: " << empCount << endl;
+	cout << "Payroll: " << endl << endl;
+	if (empCount == 0) {
+		cout << "No employees in the company " << endl;
+		return;
+	}
+	for (i = 0; i < empCount; i++) {
+		cout << "EmpName: " << ptr[i]->empName << endl;
+		cout << "EmpId: " << ptr[i]->empId << endl << endl << endl;
+	}
 }

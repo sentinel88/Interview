@@ -7,6 +7,7 @@ class Employee
 	public:
 		Employee();
 		Employee(std::string inName, int inId);
+		~Employee();
 		void setName(std::string inName);
 		std::string getName() const;
 		void setId(int inId);
