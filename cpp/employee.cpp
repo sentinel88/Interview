@@ -24,7 +24,7 @@ Employee::Employee(string inName, int inId)
 
 Employee::~Employee()
 {
-	cout <<"Destroying the entry for employee ID: "<< this->empId << endl;
+	cout <<"Destroying the entry for employee ID: "<< empId << endl;
 }
 
 
