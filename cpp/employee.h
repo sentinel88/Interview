@@ -1,5 +1,6 @@
 #ifndef _EMP_H
 #define _EMP_H
+using namespace std;
 
 
 class Employee

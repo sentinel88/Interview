@@ -6,7 +6,7 @@
 #include "company.h"
 
 int Company::empCount;
-int global_list_size = _INIT_SIZE;
+static int global_list_size = _INIT_SIZE;
 
 
 Company::Company()
@@ -15,7 +15,7 @@ Company::Company()
 	Name = "Unknown";
 	Location = "Unknown";
 	empCount = 0;
-	Payroll = NULL;
+	Payroll = new Employee[_INIT_SIZE];
 }
 
 
@@ -25,7 +25,7 @@ Company::Company(string inName, string inLocation)
 	Name = inName;
 	Location = inLocation;
 	empCount = 0;
-	Payroll = NULL;
+	Payroll = new Employee[_INIT_SIZE];
 }
 
 
@@ -75,7 +75,22 @@ Company::getCount() const
 void
 Company::addEmployee(Employee inEmp)
 {
+	Employee *newPayroll = NULL;	
+	Employee *ptr = Payroll;
+	int i;
+
+	if (empCount == global_list_size) {
+		cout << "Reached the upper limit for the size of the list. Resizing the list" << endl;
+		newPayroll = new Employee[global_list_size + _INIT_SIZE];
+		for (i = 0; i < empCount; i++) {
+			newPayroll[i] = ptr[i];
+		}	
+		delete [] Payroll;
+		Payroll = newPayroll;
+	}
 	empCount++;
+	Payroll[empCount - 1] = inEmp;
+	global_list_size += _INIT_SIZE;
 }
 
 
@@ -84,6 +99,7 @@ Company::delEmployee(int inId)
 {
 	int i = 0;
 	Employee *ptr = payroll;
+	bool found = false;
 
 	if (empCount == 0) {
 		cout << "No employees in the company to remove " << endl;
@@ -95,7 +111,11 @@ Company::delEmployee(int inId)
 			ptr[i]->Name = "Unknown";
 			ptr[i]->empId = 0;
 			empCount--;
+			found = true;
 		}
+	}
+	if (found == false) {
+		cout << "There was no employee with this id found on the payroll\n";
 	}
 }
 

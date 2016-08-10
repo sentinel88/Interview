@@ -11,29 +11,31 @@ int main()
 	Employee eObj;
 	int choice;
 	char ch;
+	std::string Name;
+	int Id;
 	
 	while(1) {
 		cout <<"\nMENU\n\n";
-		cout <<"1. Add\n";
-                cout <<"2. Delete\n";
-                cout <<"3. Display\n";
+		cout <<"1. Add Employee\n";
+                cout <<"2. Remove Employee\n";
+                cout <<"3. Display Payroll\n";
                 cout <<"\nEnter your choice\n";
                 cin >>choice;
                 switch(choice)
                 {
                         case 1:
-                                cout <<"\nEnter a value\n";
-                                cin("%d", &value);
-                                data = (int *) malloc (sizeof(int));
-                                *data = value;
-                                ret_val = insert_node(&head, (void *)data);
-                                if (ret_val)
-                                        cout("\nOperation failed\n");
+                                cout << "\nEnter the name of the employee\n";
+                                cin >> Name;
+				eObj.setName(Name);
+				cout << "\nEnter the employee id\n";
+				cin >> Id;
+				eObj.setId(Id);
+                                cObj.addEmployee(eObj);
                                 break;
                         case 2:
-                                ret_val = delete_node(&head);
-                                if (ret_val)
-                                        cout("\nOperation failed\n");
+				cout << "Enter the id of the employee who should be removed\n";
+				cin >> Id;
+                                cObj.delete_employee(Id);
                                 break;
                         case 3:
 				cObj.display();
