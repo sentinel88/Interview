@@ -1,7 +1,7 @@
-CC=gcc
-CFLAGS=-I.
+CC=g++
+CFLAGS=-Wall -Wextra -Werror -I.
 DEPS=company.h employee.h
-OBJ=company.o employee.o
+OBJ=driver.o company.o employee.o
 
 %.o: %.cpp $(DEPS)
 	$(CC) -c -o $@ $< $(CFLAGS)

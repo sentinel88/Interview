@@ -35,20 +35,20 @@ int main()
                         case 2:
 				cout << "Enter the id of the employee who should be removed\n";
 				cin >> Id;
-                                cObj.delete_employee(Id);
+                                cObj.deleteEmployee(Id);
                                 break;
                         case 3:
 				cObj.display();
                                 break;
                         default:
-                                cout("\nWrong choice. Doing nothing\n");
+                                cout << "\nWrong choice. Doing nothing\n";
                 }
                 cout <<"Do you want to continue (y/n) ??";
                 cin >>ch;
                 if (ch == 'n' || ch == 'N') {
-                        cout("\nBreaking the driver loop\n");
+                        cout << "\nBreaking the driver loop\n";
                         break;
                 }
         }
-        return 0;
+	return 0;
 }

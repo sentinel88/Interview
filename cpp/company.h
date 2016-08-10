@@ -12,8 +12,10 @@ class Company
 		void setName(std::string inName);
 		std::string getName() const;
 		int getCount() const;
+		void setLocation(std::string inLocation);
+		std::string getLocation() const;
 		void addEmployee(Employee inEmp);
-		int delEmployee(int inId);
+		void deleteEmployee(int inId);
 		void display() const;	
 	private:
 		std::string Name;

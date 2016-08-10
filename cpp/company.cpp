@@ -4,6 +4,7 @@
 #include <iostream>
 #include <string>
 #include "company.h"
+using namespace std;
 
 int Company::empCount;
 static int global_list_size = _INIT_SIZE;
@@ -95,10 +96,10 @@ Company::addEmployee(Employee inEmp)
 
 
 void
-Company::delEmployee(int inId)
+Company::deleteEmployee(int inId)
 {
 	int i = 0;
-	Employee *ptr = payroll;
+	Employee *ptr = Payroll;
 	bool found = false;
 
 	if (empCount == 0) {
@@ -106,11 +107,11 @@ Company::delEmployee(int inId)
 		return;
 	}
 	for (i = 0; i < empCount; i++) {
-		if (inId == ptr[i]->empId) {
+		if (inId == ptr[i].getId()) {
 			cout << "Employee with ID: " << inId << "found. Deleting the entry" << endl;
-			ptr[i]->Name = "Unknown";
-			ptr[i]->empId = 0;
-			empCount--;
+			ptr[i].setName("Unkown");
+			ptr[i].setId(0);
+			//empCount--;
 			found = true;
 		}
 	}
@@ -126,8 +127,8 @@ Company::display() const
 	int i = 0;
 	Employee *ptr = Payroll;
 
-	cout << "Company: " << Name << endl;
-	cout << "Location: " << Location << endl;
+	cout << "Company: " << getName() << endl;
+	cout << "Location: " << getLocation() << endl;
 	cout << "EmpCount: " << empCount << endl;
 	cout << "Payroll: " << endl << endl;
 	if (empCount == 0) {
@@ -135,7 +136,7 @@ Company::display() const
 		return;
 	}
 	for (i = 0; i < empCount; i++) {
-		cout << "EmpName: " << ptr[i]->empName << endl;
-		cout << "EmpId: " << ptr[i]->empId << endl << endl << endl;
+		cout << "EmpName: " << ptr[i].getName() << endl;
+		cout << "EmpId: " << ptr[i].getId() << endl << endl << endl;
 	}
 }
