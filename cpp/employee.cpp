@@ -54,3 +54,10 @@ Employee::getId() const
 {
 	return empId;
 }
+
+void
+Employee::print() const
+{
+	cout << "Name: " << Name <<endl;
+	cout << "Id: " << empId <<endl;
+}

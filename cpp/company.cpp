@@ -77,21 +77,24 @@ void
 Company::addEmployee(Employee inEmp)
 {
 	Employee *newPayroll = NULL;	
-	Employee *ptr = Payroll;
 	int i;
 
+	empCount++;
 	if (empCount == global_list_size) {
-		cout << "Reached the upper limit for the size of the list. Resizing the list" << endl;
+		cout << "Reached the upper limit for the size of the list. Resizing the list" << std::endl;
+		cout <<std::flush;
 		newPayroll = new Employee[global_list_size + _INIT_SIZE];
 		for (i = 0; i < empCount; i++) {
-			newPayroll[i] = ptr[i];
+			cout << "Inside the for loop\n";
+			newPayroll[i] = Payroll[i];
+			newPayroll[i].print();
+			cout <<std::flush;
 		}	
 		delete [] Payroll;
 		Payroll = newPayroll;
-	}
-	empCount++;
+		global_list_size += _INIT_SIZE;
+	} 
 	Payroll[empCount - 1] = inEmp;
-	global_list_size += _INIT_SIZE;
 }
 
 

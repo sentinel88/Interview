@@ -10,7 +10,6 @@ pattern_match (char *str, char *str1)
 {
 	int len1, len2;
 	char *ptr = NULL, *ptr1 = NULL;
-	int i = 1;	
 	int j = 0;
 
 	ptr = str;
@@ -24,7 +23,6 @@ pattern_match (char *str, char *str1)
 	printf("\n");
 	while (*ptr) {
 		j = 0;
-		//printf("%c", *ptr);
 		while (*ptr && *ptr1) {
 			printf("%c:%c\t", *ptr, *ptr1);
 			if (*ptr != *ptr1)
@@ -41,15 +39,7 @@ pattern_match (char *str, char *str1)
 		if (!j) {
 			ptr++;
 		}
-		//	i++;
-		//} else {
-		//	i += j;
-		//}
-		//	ptr = str + j;
-		//else
-		//	ptr = str + i;
 		ptr1 = str1;
-		//i++;
 	}
 	if (*ptr1 != '\0') {
 		printf("\nPattern match unsuccessful\n");

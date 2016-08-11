@@ -13,6 +13,7 @@ class Employee
 		std::string getName() const;
 		void setId(int inId);
 		int getId() const;
+		void print() const;
 	private:
 		std::string Name;
 		int empId;

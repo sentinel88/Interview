@@ -1,7 +1,7 @@
 #ifndef _COMP_H
 #define _COMP_H
 #include "employee.h"
-#define _INIT_SIZE 10
+#define _INIT_SIZE 3
 
 class Company
 {
