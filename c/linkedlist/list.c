@@ -78,7 +78,7 @@ insert_node_pos (struct node **head, int pos, void *data)
 	}
 	if (count == pos) {
 		ptr->next = iter;
-		prev->next = iter;
+		prev->next = ptr;
 	} else {
 		printf("\nPosition outside the linked list\n");
 		return -1;
@@ -134,6 +134,7 @@ delete_node_pos (struct node **head, int pos)
                 printf("\nDeletion at the front\n");
                 return (delete_node(head));
         }
+	iter = *head;
         while (iter) {
                 if ( (count == pos) && prev) {
                         break;
