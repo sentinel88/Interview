@@ -4,6 +4,7 @@
 #include <string.h>
 #include "company.h"
 #include "employee.h"
+using namespace std;
 
 int main()
 {
@@ -38,7 +39,7 @@ int main()
                                 cObj.deleteEmployee(Id);
                                 break;
                         case 3:
-				cObj.display();
+				cout <<cObj;
                                 break;
                         default:
                                 cout << "\nWrong choice. Doing nothing\n";

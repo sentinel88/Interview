@@ -10,21 +10,29 @@ int Company::empCount;
 static int global_list_size = _INIT_SIZE;
 
 
-Company::Company()
+Company::Company() :
+	Name("Unknown"), Location("Unknown")
 {
 	cout << "Inside default constructor" << endl;
+#ifdef DONT_INCLUDE
 	Name = "Unknown";
 	Location = "Unknown";
+	empCount = 0;
+#endif
 	empCount = 0;
 	Payroll = new Employee[_INIT_SIZE];
 }
 
 
-Company::Company(string inName, string inLocation)
+Company::Company(const string& inName, const string& inLocation) :
+	Name(inName), Location(inLocation)
 {
 	cout << "Inside parameterized constructor" << endl;
+#ifdef DONT_INCLUDE
 	Name = inName;
 	Location = inLocation;
+	empCount = 0;
+#endif
 	empCount = 0;
 	Payroll = new Employee[_INIT_SIZE];
 }
@@ -39,13 +47,13 @@ Company::~Company()
 
 
 void 
-Company::setName(string inName)
+Company::setName(const string& inName)
 {
 	Name = inName;
 }
 
 
-string 
+const string&
 Company::getName() const
 {
 	return Name;
@@ -53,13 +61,13 @@ Company::getName() const
 
 
 void
-Company::setLocation(string inLocation)
+Company::setLocation(const string& inLocation)
 {
         Location = inLocation;
 }
 
 
-string
+const string&
 Company::getLocation() const
 {
         return Location;
@@ -142,4 +150,25 @@ Company::display() const
 		cout << "EmpName: " << ptr[i].getName() << endl;
 		cout << "EmpId: " << ptr[i].getId() << endl << endl << endl;
 	}
+}
+
+
+ostream&
+operator<<(ostream& output, const Company& inCompany)
+{
+	int i = 0;
+        Employee *ptr = inCompany.Payroll;
+
+        output << "Company: " << inCompany.getName() << endl;
+        output << "Location: " << inCompany.getLocation() << endl;
+        output << "EmpCount: " << inCompany.empCount << endl;
+        output << "Payroll: " << endl << endl;
+        if (inCompany.empCount == 0) {
+                output << "No employees in the company " << endl;
+                return output;
+        }
+        for (i = 0; i < inCompany.empCount; i++) {
+		output << ptr[i];
+        }
+	return output;
 }
