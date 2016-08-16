@@ -31,12 +31,14 @@ int main()
 				cout << "\nEnter the employee id\n";
 				cin >> Id;
 				eObj.setId(Id);
-                                cObj.addEmployee(eObj);
+                                //cObj.addEmployee(eObj);
+				cObj = cObj + eObj;
                                 break;
                         case 2:
 				cout << "Enter the id of the employee who should be removed\n";
 				cin >> Id;
-                                cObj.deleteEmployee(Id);
+                                //cObj.deleteEmployee(Id);
+				cObj = cObj - Id;
                                 break;
                         case 3:
 				cout <<cObj;

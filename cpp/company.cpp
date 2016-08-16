@@ -82,21 +82,16 @@ Company::getCount() const
 
 
 void
-Company::addEmployee(Employee inEmp)
+Company::addEmployee(const Employee &inEmp)
 {
 	Employee *newPayroll = NULL;	
 	int i;
 
 	empCount++;
 	if (empCount == global_list_size) {
-		cout << "Reached the upper limit for the size of the list. Resizing the list" << std::endl;
-		cout <<std::flush;
 		newPayroll = new Employee[global_list_size + _INIT_SIZE];
 		for (i = 0; i < empCount; i++) {
-			cout << "Inside the for loop\n";
 			newPayroll[i] = Payroll[i];
-			newPayroll[i].print();
-			cout <<std::flush;
 		}	
 		delete [] Payroll;
 		Payroll = newPayroll;
@@ -153,21 +148,37 @@ Company::display() const
 }
 
 
+Company&
+Company::operator+(const Employee &inEmp)
+{
+	addEmployee(inEmp);
+	return *this;
+}
+
+
+Company&
+Company::operator-(int inId)
+{
+	deleteEmployee(inId);
+	return *this;
+}
+
+
 ostream&
-operator<<(ostream& output, const Company& inCompany)
+operator<<(ostream& output, const Company& inComp)
 {
 	int i = 0;
-        Employee *ptr = inCompany.Payroll;
+        Employee *ptr = inComp.Payroll;
 
-        output << "Company: " << inCompany.getName() << endl;
-        output << "Location: " << inCompany.getLocation() << endl;
-        output << "EmpCount: " << inCompany.empCount << endl;
+        output << "Company: " << inComp.getName() << endl;
+        output << "Location: " << inComp.getLocation() << endl;
+        output << "EmpCount: " << inComp.empCount << endl;
         output << "Payroll: " << endl << endl;
-        if (inCompany.empCount == 0) {
+        if (inComp.empCount == 0) {
                 output << "No employees in the company " << endl;
                 return output;
         }
-        for (i = 0; i < inCompany.empCount; i++) {
+        for (i = 0; i < inComp.empCount; i++) {
 		output << ptr[i];
         }
 	return output;
