@@ -10,6 +10,7 @@ int main()
 {
 	Company cObj;
 	Employee eObj;
+	Company *dupObj = NULL;
 	int choice;
 	char ch;
 	std::string Name;
@@ -20,6 +21,7 @@ int main()
 		cout <<"1. Add Employee\n";
                 cout <<"2. Remove Employee\n";
                 cout <<"3. Display Payroll\n";
+		cout <<"4. Duplicate the Company and Display its payroll\n";
                 cout <<"\nEnter your choice\n";
                 cin >>choice;
                 switch(choice)
@@ -43,6 +45,10 @@ int main()
                         case 3:
 				cout <<cObj;
                                 break;
+			case 4: 
+				dupObj = new Company(cObj);
+				cout <<*dupObj;
+				break;
                         default:
                                 cout << "\nWrong choice. Doing nothing\n";
                 }
@@ -53,5 +59,7 @@ int main()
                         break;
                 }
         }
+	if (dupObj)
+		delete dupObj;
 	return 0;
 }

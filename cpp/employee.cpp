@@ -23,6 +23,13 @@ Employee::Employee(const string& inName, int inId)
 }
 
 
+Employee::Employee(const Employee &inEmp):
+	Name(inEmp.Name), empId(inEmp.empId)
+{
+	cout <<"This is the copy constructor for the employee class\n";
+}
+
+
 Employee::~Employee()
 {
 	cout <<"Destroying the entry for employee ID: "<< empId << endl;
@@ -62,6 +69,19 @@ Employee::print() const
 {
 	cout << "Name: " << Name <<endl;
 	cout << "Id: " << empId <<endl;
+}
+
+
+Employee&
+Employee::operator=(const Employee &inEmp)
+{
+	if (this == &inEmp) {
+		cout <<"Same objects in the assignment statement hence nothing will be done";
+		return *this;
+	}
+	Name = inEmp.Name;
+	empId = inEmp.empId;
+	return *this;
 }
 
 

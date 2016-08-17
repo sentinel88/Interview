@@ -38,6 +38,20 @@ Company::Company(const string& inName, const string& inLocation) :
 }
 
 
+Company::Company(const Company &inComp) :
+	Name(inComp.Name), Location(inComp.Location)
+{
+	int i = 0;	
+
+	cout <<"This is the copy constructor for company class\n";
+	//Payroll = new Employee[_INIT_SIZE];
+	Payroll = new Employee[global_list_size];
+	for (i = 0; i < inComp.empCount; i++) {
+		Payroll[i] = inComp.Payroll[i];
+	}
+}
+
+
 Company::~Company()
 {
 	cout << "Deleting the company and all its employee entries";
@@ -88,9 +102,9 @@ Company::addEmployee(const Employee &inEmp)
 	int i;
 
 	empCount++;
-	if (empCount == global_list_size) {
+	if (empCount > global_list_size) {
 		newPayroll = new Employee[global_list_size + _INIT_SIZE];
-		for (i = 0; i < empCount; i++) {
+		for (i = 0; i < (empCount - 1); i++) {
 			newPayroll[i] = Payroll[i];
 		}	
 		delete [] Payroll;

@@ -9,6 +9,7 @@ class Company
 	public:
 		Company();
 		Company(const std::string& inName, const std::string& inLocation);	
+		Company(const Company &inComp);
 		~Company();
 		void setName(const std::string& inName);
 		const std::string& getName() const;
