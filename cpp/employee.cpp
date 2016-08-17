@@ -92,3 +92,13 @@ operator<<(ostream& output, const Employee& inEmployee)
 	output << "Id: " << inEmployee.empId <<endl;
 	return output;
 }
+
+
+PermanentEmployee::PermanentEmployee() :
+	Dept("Unknown")
+{
+	cout <<"This is the default constructor for the Permanent Employee\n";
+}
+
+
+PermanentEmployee::PermanentEmployee(
