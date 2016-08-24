@@ -12,12 +12,12 @@ static int global_list_size = _INIT_SIZE;
 
 void
 Company::_create_NewEmployee(Employee **ptr,
-		 	Employee *inEmp, int inType)
+		 	const Employee& inEmp, int inType)
 {
 	if (!inType)
-        	*ptr = new PermanentEmployee(*inEmp);
+        	*ptr = new PermanentEmployee(static_cast<const PermanentEmployee&>(inEmp));
         else
-                *ptr = new ContractEmployee(*inEmp);
+                *ptr = new ContractEmployee(static_cast<const ContractEmployee&>(inEmp));
 }
 
 
@@ -57,7 +57,7 @@ Company::Company(const Company &inComp) :
 	cout <<"This is the copy constructor for company class\n";
 	Payroll = new Employee*[global_list_size];
 	for (i = 0; i < inComp.empCount; i++) {
-		_create_NewEmployee(&Payroll[i], inComp.Payroll[i], (inComp.Payroll[i])->getType());
+		_create_NewEmployee(&Payroll[i], *(inComp.Payroll[i]), (inComp.Payroll[i])->getType());
 	}
 }
 
@@ -114,7 +114,7 @@ Company::getCount() const
 void
 Company::addEmployee(const Employee &inEmp)
 {
-	Employee *newPayroll = NULL;	
+	Employee **newPayroll = NULL;	
 	int i;
 
 	empCount++;
@@ -122,7 +122,7 @@ Company::addEmployee(const Employee &inEmp)
 		newPayroll = new Employee*[global_list_size + _INIT_SIZE];
 		for (i = 0; i < (empCount - 1); i++) {
 			//newPayroll[i] = Payroll[i];
-			_create_NewEmployee(&newPayroll[i], Payroll[i], Payroll[i]->getType());
+			_create_NewEmployee(&newPayroll[i], *Payroll[i], Payroll[i]->getType());
 		}	
 		for (i = 0; i < empCount; i++) {
                         delete Payroll[i];
@@ -132,7 +132,7 @@ Company::addEmployee(const Employee &inEmp)
 		global_list_size += _INIT_SIZE;
 	} 
 	//Payroll[empCount - 1] = inEmp;
-	_create_NewEmployee(&Payroll[empCount - 1], &inEmp, inEmp.getType());
+	_create_NewEmployee(&Payroll[empCount - 1], inEmp, inEmp.getType());
 }
 
 
@@ -140,7 +140,7 @@ void
 Company::deleteEmployee(int inId)
 {
 	int i = 0;
-	Employee *ptr = Payroll;
+	Employee **ptr = Payroll;
 	bool found = false;
 
 	if (empCount == 0) {
@@ -166,7 +166,7 @@ void
 Company::display() const
 {
 	int i = 0;
-	Employee *ptr = Payroll;
+	Employee **ptr = Payroll;
 
 	cout << "Company: " << getName() << endl;
 	cout << "Location: " << getLocation() << endl;
@@ -203,7 +203,7 @@ ostream&
 operator<<(ostream& output, const Company& inComp)
 {
 	int i = 0;
-        Employee *ptr = inComp.Payroll;
+        Employee **ptr = inComp.Payroll;
 
         output << "Company: " << inComp.getName() << endl;
         output << "Location: " << inComp.getLocation() << endl;

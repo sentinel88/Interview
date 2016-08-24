@@ -65,6 +65,20 @@ Employee::getId() const
 
 
 void
+Employee::setType(int inType)
+{
+        Type = inType;
+}
+
+
+int
+Employee::getType() const
+{
+        return Type;
+}
+
+
+void
 Employee::print() const
 {
 	cout << "Name: " << Name <<endl;
@@ -86,10 +100,10 @@ Employee::operator=(const Employee &inEmp)
 
 
 ostream&
-operator<<(ostream& output, const Employee& inEmployee)
+operator<<(ostream& output, const Employee *inEmployee)
 {
-	output << "Name: " << inEmployee.Name <<endl;
-	output << "Id: " << inEmployee.empId <<endl;
+	output << "Name: " << inEmployee->Name <<endl;
+	output << "Id: " << inEmployee->empId <<endl;
 	return output;
 }
 
@@ -144,7 +158,7 @@ ContractEmployee::ContractEmployee(const ContractEmployee& inEmp) :
 }
 
 
-ContractEmployee::~ContracttEmployee()
+ContractEmployee::~ContractEmployee()
 {
         cout <<"This is the destructor for contract employee class\n";
 }
