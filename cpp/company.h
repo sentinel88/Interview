@@ -27,6 +27,7 @@ class Company
 		std::string Location;
 		static int empCount;
 		Employee *Payroll;
+		void _create_NewEmployee(Employee *inEmp, int inType);
 };
 
 #endif

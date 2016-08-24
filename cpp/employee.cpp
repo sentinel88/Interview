@@ -23,7 +23,7 @@ Employee::Employee(const string& inName, int inId)
 }
 
 
-Employee::Employee(const Employee &inEmp):
+Employee::Employee(const Employee &inEmp) :
 	Name(inEmp.Name), empId(inEmp.empId)
 {
 	cout <<"This is the copy constructor for the employee class\n";
@@ -101,4 +101,51 @@ PermanentEmployee::PermanentEmployee() :
 }
 
 
-PermanentEmployee::PermanentEmployee(
+PermanentEmployee::PermanentEmployee(const string& inName, 
+					int Id, const string& inDept) :
+			Employee(inName, Id), Dept(inDept)
+{
+	cout <<"This is the parameterized constructor of the permanent employee class\n";
+}
+
+
+PermanentEmployee::PermanentEmployee(const PermanentEmployee& inEmp) :
+			Employee(inEmp), Dept(inEmp.Dept)
+{
+	cout <<"This is the copy constructor for permanent employee class\n";
+}
+
+
+PermanentEmployee::~PermanentEmployee()
+{
+	cout <<"This is the destructor for permanent employee class\n";
+}
+
+
+ContractEmployee::ContractEmployee() :
+        Agency("Unknown")
+{
+        cout <<"This is the default constructor for the Permanent Employee\n";
+}
+
+
+ContractEmployee::ContractEmployee(const string& inName,
+                                        int Id, const string& inAgency) :
+                        Employee(inName, Id), Agency(inAgency)
+{
+        cout <<"This is the parameterized constructor of the contract employee class\n";
+}
+
+
+ContractEmployee::ContractEmployee(const ContractEmployee& inEmp) :
+                        Employee(inEmp), Agency(inEmp.Agency)
+{
+        cout <<"This is the copy constructor for contract employee class\n";
+}
+
+
+ContractEmployee::~ContracttEmployee()
+{
+        cout <<"This is the destructor for contract employee class\n";
+}
+

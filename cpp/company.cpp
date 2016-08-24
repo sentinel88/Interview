@@ -10,6 +10,17 @@ int Company::empCount;
 static int global_list_size = _INIT_SIZE;
 
 
+void
+Company::_create_NewEmployee(Employee **ptr,
+		 	Employee *inEmp, int inType)
+{
+	if (!inType)
+        	*ptr = new PermanentEmployee(*inEmp);
+        else
+                *ptr = new ContractEmployee(*inEmp);
+}
+
+
 Company::Company() :
 	Name("Unknown"), Location("Unknown")
 {
@@ -20,7 +31,7 @@ Company::Company() :
 	empCount = 0;
 #endif
 	empCount = 0;
-	Payroll = new Employee[_INIT_SIZE];
+	Payroll = new Employee*[_INIT_SIZE];
 }
 
 
@@ -34,7 +45,7 @@ Company::Company(const string& inName, const string& inLocation) :
 	empCount = 0;
 #endif
 	empCount = 0;
-	Payroll = new Employee[_INIT_SIZE];
+	Payroll = new Employee*[_INIT_SIZE];
 }
 
 
@@ -44,19 +55,24 @@ Company::Company(const Company &inComp) :
 	int i = 0;	
 
 	cout <<"This is the copy constructor for company class\n";
-	//Payroll = new Employee[_INIT_SIZE];
-	Payroll = new Employee[global_list_size];
+	Payroll = new Employee*[global_list_size];
 	for (i = 0; i < inComp.empCount; i++) {
-		Payroll[i] = inComp.Payroll[i];
+		_create_NewEmployee(&Payroll[i], inComp.Payroll[i], (inComp.Payroll[i])->getType());
 	}
 }
 
 
 Company::~Company()
 {
+	int i = 0;
+
 	cout << "Deleting the company and all its employee entries";
-	if (Payroll != NULL)
+	if (Payroll != NULL && empCount) {
+		for (i = 0; i < empCount; i++) {
+                	delete Payroll[i];
+        	}
 		delete [] Payroll;
+	}
 }
 
 
@@ -103,15 +119,20 @@ Company::addEmployee(const Employee &inEmp)
 
 	empCount++;
 	if (empCount > global_list_size) {
-		newPayroll = new Employee[global_list_size + _INIT_SIZE];
+		newPayroll = new Employee*[global_list_size + _INIT_SIZE];
 		for (i = 0; i < (empCount - 1); i++) {
-			newPayroll[i] = Payroll[i];
+			//newPayroll[i] = Payroll[i];
+			_create_NewEmployee(&newPayroll[i], Payroll[i], Payroll[i]->getType());
 		}	
+		for (i = 0; i < empCount; i++) {
+                        delete Payroll[i];
+                }
 		delete [] Payroll;
 		Payroll = newPayroll;
 		global_list_size += _INIT_SIZE;
 	} 
-	Payroll[empCount - 1] = inEmp;
+	//Payroll[empCount - 1] = inEmp;
+	_create_NewEmployee(&Payroll[empCount - 1], &inEmp, inEmp.getType());
 }
 
 
@@ -127,10 +148,10 @@ Company::deleteEmployee(int inId)
 		return;
 	}
 	for (i = 0; i < empCount; i++) {
-		if (inId == ptr[i].getId()) {
+		if (inId == ptr[i]->getId()) {
 			cout << "Employee with ID: " << inId << "found. Deleting the entry" << endl;
-			ptr[i].setName("Unkown");
-			ptr[i].setId(0);
+			ptr[i]->setName("Unkown");
+			ptr[i]->setId(0);
 			//empCount--;
 			found = true;
 		}
@@ -156,8 +177,8 @@ Company::display() const
 		return;
 	}
 	for (i = 0; i < empCount; i++) {
-		cout << "EmpName: " << ptr[i].getName() << endl;
-		cout << "EmpId: " << ptr[i].getId() << endl << endl << endl;
+		cout << "EmpName: " << ptr[i]->getName() << endl;
+		cout << "EmpId: " << ptr[i]->getId() << endl << endl << endl;
 	}
 }
 

@@ -29,9 +29,10 @@ class PermanentEmployee : public Employee
 {
 	public:
 		PermanentEmployee();
-		PermanentEmployee(const PermanentEmployee &inEmp);
+		PermanentEmployee(const std::string& inName, int Id, const std::string& inDept);
+		PermanentEmployee(const PermanentEmployee& inEmp);
 		virtual ~PermanentEmployee();
-		const str::string &getDept() const;
+		const str::string& getDept() const;
 		void setDept(const std::string& inDept);
 	private:
 		std::string Dept;
@@ -43,8 +44,9 @@ class ContractEmployee : public Employee
         public:
                 ContractEmployee();
                 ContractEmployee(const ContractEmployee &inEmp);
+		ContractEmployee(const std::string& inName, int Id, const std::string& inAgency);
                 virtual ~ContractEmployee();
-		const str::string &getAgency() const;
+		const str::string& getAgency() const;
 		void setAgency(const std::string& inAgency);
         private:
                 std::string Agency;
