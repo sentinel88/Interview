@@ -1,7 +1,7 @@
 CC=gcc
 CFLAGS=-I.
-DEPS=list.h
-OBJ=driver.o list.o
+DEPS=node.h
+OBJ=driver.o node.o
 
 %.o: %.c $(DEPS)
 	$(CC) -c -o $@ $< $(CFLAGS)

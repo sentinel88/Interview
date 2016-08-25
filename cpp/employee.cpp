@@ -152,7 +152,7 @@ ContractEmployee::ContractEmployee(const string& inName,
 
 
 ContractEmployee::ContractEmployee(const ContractEmployee& inEmp) :
-                        Employee(inEmp), Agency(inEmp.Agency)
+			Employee(inEmp), Agency(inEmp.Agency)
 {
         cout <<"This is the copy constructor for contract employee class\n";
 }

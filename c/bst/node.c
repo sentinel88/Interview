@@ -35,27 +35,36 @@ insert (struct node **head, void *data)
 	printf("\nInside insert function\n");
 
 	struct node *ptr = NULL;
+	struct node *prev = NULL;
 	int value = 0;
 	int input = *(int *)(data);
 
+	if (*head == NULL) {
+		*head = get_bst_node(data);
+		return 0;
+	}
 	ptr = *head;
 	while (ptr) {
+		prev = ptr;
 		value = *(int *)(ptr->data);
 		if (input <= value)
 			ptr = ptr->left;
 		else
 			ptr = ptr->right;
 	}
-	ptr = get_bst_node(data);
-	printf("\nExiting insert function\n");
+	if (input <= value)
+		prev->left = get_bst_node(data);
+	else
+		prev->right = get_bst_node(data);
 
+	printf("\nExiting insert function\n");
 	return 0;
 }
 
 
 /* Delete a node from the bst */
 extern int
-delete_node (struct node **head)
+delete_node (struct node **head, void *data)
 {
 	printf("\nEntering delete node function\n");
 
@@ -64,10 +73,7 @@ delete_node (struct node **head)
 	if (*head == NULL) {
 		printf("\nEmpty list\n");
 	} else {
-		ptr = *head;
-		*head = (*head)->next;
-		free((int *)(ptr->data));
-		free(ptr);
+		printf("\nDeleting the node\n");
 	}
 
 	printf("\nExiting delete node function\n");
@@ -79,18 +85,12 @@ delete_node (struct node **head)
 extern void 
 inorder (struct node *head)
 {
-	printf("\nInside inorder function\n");
-
 	if (head == NULL) {
 		return;
 	} 
-	while (head) {
-		inorder(head->left);
-		print_node(head);
-		inorder(head->right);	
-	}
-
-	printf("\nExiting inorder function\n");	
+	inorder(head->left);
+	print_node(head);
+	inorder(head->right);	
 }
 
 
@@ -98,18 +98,12 @@ inorder (struct node *head)
 extern void
 preorder (struct node *head)
 {
-	printf("\nInside preorder function\n");
-
         if (head == NULL) {
                 return;
         }
-        while (head) {
-                print_node(head);
-                preorder(head->left);
-                preorder(head->right);
-        }
-
-        printf("\nExiting preorder function\n");
+	print_node(head);
+	preorder(head->left);
+	preorder(head->right);
 }
 
 
@@ -117,16 +111,10 @@ preorder (struct node *head)
 extern void
 postorder (struct node *head)
 {
-	printf("\nInside postorder function\n");
-
         if (head == NULL) {
                 return;
         }
-        while (head) {
-                postorder(head->left);
-                postorder(head->right);
-                print_node(head);
-        }
-
-        printf("\nExiting postorder function\n");
+	postorder(head->left);
+	postorder(head->right);
+	print_node(head);
 }
