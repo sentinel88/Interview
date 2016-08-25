@@ -62,6 +62,23 @@ insert (struct node **head, void *data)
 }
 
 
+static void
+free_node(struct node *ptr)
+{
+	free((int *)(ptr->data);
+	free(ptr);
+}
+
+
+static struct node*
+left_rightmost(struct node *ptr)
+{
+	while(ptr)
+		ptr = ptr->right;
+	return ptr;
+}
+
+
 /* Delete a node from the bst */
 extern int
 delete_node (struct node **head, void *data)
@@ -69,11 +86,52 @@ delete_node (struct node **head, void *data)
 	printf("\nEntering delete node function\n");
 
 	struct node *ptr = NULL;
+	struct node *prev = NULL;
+	int value = 0;
+	int input = *(int *)(data);
+	struct node *replace_node = NULL;
 
 	if (*head == NULL) {
 		printf("\nEmpty list\n");
+	} 
+	ptr = *head;	
+	while (ptr) {
+                prev = ptr;
+                value = *(int *)(ptr->data);
+		if (input == value)
+			break;
+                if (input < value)
+                        ptr = ptr->left;
+                else
+                        ptr = ptr->right;
+        }
+        if (input == value) {
+		printf("\nNode with the given element found. Deleting this node and adjusting the bst\n");
+		if (ptr->left == NULL && ptr->right == NULL) {
+			printf("\nDeleting leaf node\n");
+			free_node(ptr);
+		} else if (ptr->left == NULL) {
+			printf("\nDeleting a node with right subtree. Connecting prev ptr with the root of its right subtree\n");
+			if (prev == ptr)
+				prev = ptr->right;
+			else
+				prev->right = ptr->right;
+			free_node(ptr);
+		} else if (ptr->right == NULL) {
+			printf("\nDeleting a node with left subtree. Connecting prev ptr with the root of its left subtree\n");
+			if (prev == ptr)
+				prev = ptr->left;
+			else
+				prev->left = ptr->left;
+			free_node(ptr);
+                } else {
+			printf("\nDeleting a node with both right and left subtrees. Replacing it by a successor from the left subtree\n");
+			replace_node = left_rightmost(ptr->left);
+			*(int *)(ptr->data) = *(int *)(replace_node->data);
+			free_node(replace_node);
+		}
 	} else {
-		printf("\nDeleting the node\n");
+                printf("\nNode with this element unavailable\n");
 	}
 
 	printf("\nExiting delete node function\n");
