@@ -11,8 +11,8 @@ struct node
 extern int 
 insert (struct node **head, void *data);
 
-extern int 
-delete_node (struct node **head, void *data);
+extern void 
+delete_node (struct node **head, struct node *parent, int key);
 
 extern void
 postorder (struct node *head);

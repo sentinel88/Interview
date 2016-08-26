@@ -45,8 +45,9 @@ int main (int argc, char *argv[])
 					printf("\nOperation failed\n");
 				break;
 			case 2:
-				if (ret_val)
-					printf("\nOperation failed\n");
+				printf("\nEnter the key to search for in the tree\n");
+				scanf(" %d", &value);
+				delete_node(&head, NULL, value);
 				break;
 			case 3:
 				inorder(head);

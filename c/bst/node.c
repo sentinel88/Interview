@@ -65,77 +65,97 @@ insert (struct node **head, void *data)
 static void
 free_node(struct node *ptr)
 {
-	free((int *)(ptr->data);
+	free((int *)(ptr->data));
 	free(ptr);
 }
 
 
 static struct node*
-left_rightmost(struct node *ptr)
+left_rightmost(struct node *ptr, struct node **parent)
 {
-	while(ptr)
+	if (ptr->right == NULL) {
+		printf("\nRight subtree is empty\n");
+		return ptr;
+	}
+	while(ptr->right) {
+		*parent = ptr;
 		ptr = ptr->right;
+	}
 	return ptr;
 }
 
 
 /* Delete a node from the bst */
-extern int
-delete_node (struct node **head, void *data)
+extern void
+delete_node (struct node **head, struct node *parent, int key)
 {
 	printf("\nEntering delete node function\n");
 
 	struct node *ptr = NULL;
-	struct node *prev = NULL;
+	struct node *prev = parent;
 	int value = 0;
-	int input = *(int *)(data);
 	struct node *replace_node = NULL;
 
 	if (*head == NULL) {
 		printf("\nEmpty list\n");
+		return;
 	} 
 	ptr = *head;	
 	while (ptr) {
-                prev = ptr;
                 value = *(int *)(ptr->data);
-		if (input == value)
+		if (key == value)
 			break;
-                if (input < value)
+                prev = ptr;
+                if (key < value)
                         ptr = ptr->left;
                 else
                         ptr = ptr->right;
         }
-        if (input == value) {
+        if (key == value) {
 		printf("\nNode with the given element found. Deleting this node and adjusting the bst\n");
 		if (ptr->left == NULL && ptr->right == NULL) {
 			printf("\nDeleting leaf node\n");
+			if (prev == NULL)
+				*head = NULL;
+			if (prev && prev->right == ptr)
+				prev->right = NULL;
+			if (prev && prev->left == ptr)
+				prev->left = NULL;
 			free_node(ptr);
 		} else if (ptr->left == NULL) {
 			printf("\nDeleting a node with right subtree. Connecting prev ptr with the root of its right subtree\n");
-			if (prev == ptr)
-				prev = ptr->right;
-			else
-				prev->right = ptr->right;
+			if (prev == NULL)
+				*head = ptr->right;
+			else {
+				if (prev->right == ptr)
+					prev->right = ptr->right;
+				else
+					prev->left = ptr->right;
+			}
 			free_node(ptr);
 		} else if (ptr->right == NULL) {
 			printf("\nDeleting a node with left subtree. Connecting prev ptr with the root of its left subtree\n");
-			if (prev == ptr)
-				prev = ptr->left;
-			else
-				prev->left = ptr->left;
+			if (prev == NULL)
+				*head = ptr->left;
+			else {
+				if (prev->right == ptr)
+					prev->right = ptr->left;
+				else
+					prev->left = ptr->left;
+			}
 			free_node(ptr);
                 } else {
 			printf("\nDeleting a node with both right and left subtrees. Replacing it by a successor from the left subtree\n");
-			replace_node = left_rightmost(ptr->left);
+			prev = ptr;
+			replace_node = left_rightmost(ptr->left, &prev);
 			*(int *)(ptr->data) = *(int *)(replace_node->data);
-			free_node(replace_node);
+			delete_node(&replace_node, prev, *(int *)(replace_node->data));
 		}
 	} else {
                 printf("\nNode with this element unavailable\n");
 	}
 
 	printf("\nExiting delete node function\n");
-	return 0;
 }
 
 

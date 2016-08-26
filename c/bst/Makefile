@@ -1,5 +1,5 @@
 CC=gcc
-CFLAGS=-I.
+CFLAGS=-g -I.
 DEPS=node.h
 OBJ=driver.o node.o
 
