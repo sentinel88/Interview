@@ -6,15 +6,31 @@
 #include "employee.h"
 using namespace std;
 
+
+static Employee*
+get_new_employee(int inType)
+{
+	Employee *ptr = NULL;
+
+        if (!inType)
+                ptr = new PermanentEmployee();
+        else
+                ptr = new ContractEmployee();
+
+	return ptr;
+}
+
+
 int main()
 {
 	Company cObj;
-	Employee eObj;
+	Employee *eObj = NULL;
 	Company *dupObj = NULL;
 	int choice;
 	char ch;
 	std::string Name;
 	int Id;
+	int Type;
 	
 	while(1) {
 		cout <<"\nMENU\n\n";
@@ -29,10 +45,14 @@ int main()
                         case 1:
                                 cout << "\nEnter the name of the employee\n";
                                 cin >> Name;
-				eObj.setName(Name);
 				cout << "\nEnter the employee id\n";
 				cin >> Id;
-				eObj.setId(Id);
+				cout << "\nEnter the type of the employee\n";
+				cin >> Type;
+				eObj = get_new_employee(Type);
+				eObj->setName(Name);
+				eObj->setId(Id);
+				eObj->setType(Type);
                                 //cObj.addEmployee(eObj);
 				cObj = cObj + eObj;
                                 break;

@@ -14,10 +14,16 @@ void
 Company::_create_NewEmployee(Employee **ptr,
 		 	const Employee& inEmp, int inType)
 {
-	if (!inType)
+	cout <<"\nInside create new employee\n";
+//	cout <<inEmp <<"\n" <<inType;
+	cout <<inType <<"\n";
+	if (!inType) {
+		cout <<"Inside if intype = 0\n";
         	*ptr = new PermanentEmployee(static_cast<const PermanentEmployee&>(inEmp));
-        else
+	} else {
+		cout <<"Inside if intype = 1\n";
                 *ptr = new ContractEmployee(static_cast<const ContractEmployee&>(inEmp));
+	}
 }
 
 
@@ -112,7 +118,8 @@ Company::getCount() const
 
 
 void
-Company::addEmployee(const Employee &inEmp)
+//Company::addEmployee(const Employee &inEmp)
+Company::addEmployee(Employee *inEmp)
 {
 	Employee **newPayroll = NULL;	
 	int i;
@@ -122,7 +129,7 @@ Company::addEmployee(const Employee &inEmp)
 		newPayroll = new Employee*[global_list_size + _INIT_SIZE];
 		for (i = 0; i < (empCount - 1); i++) {
 			//newPayroll[i] = Payroll[i];
-			_create_NewEmployee(&newPayroll[i], *Payroll[i], Payroll[i]->getType());
+			_create_NewEmployee(&newPayroll[i], *(Payroll[i]), Payroll[i]->getType());
 		}	
 		for (i = 0; i < empCount; i++) {
                         delete Payroll[i];
@@ -184,7 +191,8 @@ Company::display() const
 
 
 Company&
-Company::operator+(const Employee &inEmp)
+//Company::operator+(const Employee &inEmp)
+Company::operator+(Employee *inEmp)
 {
 	addEmployee(inEmp);
 	return *this;
@@ -214,7 +222,10 @@ operator<<(ostream& output, const Company& inComp)
                 return output;
         }
         for (i = 0; i < inComp.empCount; i++) {
-		output << ptr[i];
+		if (ptr[i]->getType())
+			output << static_cast<ContractEmployee*>ptr[i];
+		else
+			output << static_cast<PermanentEmployee*>ptr[i];
         }
 	return output;
 }

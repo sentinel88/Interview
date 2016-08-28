@@ -34,6 +34,7 @@ class PermanentEmployee : public Employee
 		virtual ~PermanentEmployee();
 		const std::string& getDept() const;
 		void setDept(const std::string& inDept);
+		friend std::ostream& operator<<(std::ostream& output, const PermanentEmployee *inEmployee);
 	private:
 		std::string Dept;
 };
@@ -48,6 +49,7 @@ class ContractEmployee : public Employee
                 virtual ~ContractEmployee();
 		const std::string& getAgency() const;
 		void setAgency(const std::string& inAgency);
+		friend std::ostream& operator<<(std::ostream& output, const ContractEmployee *inEmployee);
         private:
                 std::string Agency;
 };

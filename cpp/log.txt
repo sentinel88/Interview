@@ -1,4 +1,0 @@
-g++ -c -o driver.o driver.cpp -g -I.
-g++ -c -o company.o company.cpp -g -I.
-g++ -c -o employee.o employee.cpp -g -I.
-g++ -o driver driver.o company.o employee.o -g -I.

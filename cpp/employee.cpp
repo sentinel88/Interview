@@ -136,6 +136,17 @@ PermanentEmployee::~PermanentEmployee()
 }
 
 
+ostream&
+operator<<(ostream& output, const PermanentEmployee *inEmployee)
+{
+        //output << "Name: " << inEmployee->Name <<endl;
+        //output << "Id: " << inEmployee->empId <<endl;
+	output << static_cast<const Employee&>*inEmployee;
+	output << inEmployee->Dept;
+        return output;
+}
+
+
 ContractEmployee::ContractEmployee() :
         Agency("Unknown")
 {
@@ -163,3 +174,13 @@ ContractEmployee::~ContractEmployee()
         cout <<"This is the destructor for contract employee class\n";
 }
 
+
+ostream&
+operator<<(ostream& output, const ContractEmployee *inEmployee)
+{
+        //output << "Name: " << inEmployee->Name <<endl;
+        //output << "Id: " << inEmployee->empId <<endl;
+        output << static_cast<const Employee&>*inEmployee;
+        output << inEmployee->Agency;
+        return output;
+}
