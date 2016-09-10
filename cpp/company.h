@@ -16,10 +16,12 @@ class Company
 		int getCount() const;
 		void setLocation(const std::string& inLocation);
 		const std::string& getLocation() const;
-		void addEmployee(const Employee &inEmp);
+		//void addEmployee(const Employee &inEmp);
+		void addEmployee(Employee *inEmp);
 		void deleteEmployee(int inId);
 		void display() const;	
-		Company& operator+(const Employee &inEmp);
+		//Company& operator+(const Employee &inEmp);
+		Company& operator+(Employee *inEmp);
 		Company& operator-(int Id);
 		friend std::ostream& operator<<(std::ostream& output, const Company& inComp);
 	private:
@@ -27,7 +29,8 @@ class Company
 		std::string Location;
 		static int empCount;
 		Employee **Payroll;
-		void _create_NewEmployee(Employee **ptr, const Employee& inEmp, int inType);
+		//void _create_NewEmployee(Employee **ptr, const Employee& inEmp, int inType);
+		void _create_NewEmployee(Employee **ptr, Employee *inEmp, int inType);
 };
 
 #endif

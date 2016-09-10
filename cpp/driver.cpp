@@ -23,12 +23,13 @@ get_new_employee(int inType)
 
 int main()
 {
-	Company cObj;
+	Company cObj("TUM", "Munich");
 	Employee *eObj = NULL;
 	Company *dupObj = NULL;
 	int choice;
 	char ch;
 	std::string Name;
+	std::string empString;
 	int Id;
 	int Type;
 	
@@ -53,6 +54,15 @@ int main()
 				eObj->setName(Name);
 				eObj->setId(Id);
 				eObj->setType(Type);
+				if (Type) {
+					cout << "Enter the agency of this contract employee\n";
+					cin >>empString;
+					(static_cast<ContractEmployee*>(eObj))->setAgency(empString);
+				} else {
+					cout << "Enter the department of this permanent employee\n";
+					cin >>empString;
+					(static_cast<PermanentEmployee*>(eObj))->setDept(empString);
+				}
                                 //cObj.addEmployee(eObj);
 				cObj = cObj + eObj;
                                 break;
@@ -81,5 +91,7 @@ int main()
         }
 	if (dupObj)
 		delete dupObj;
+	if (eObj)
+		delete eObj;
 	return 0;
 }

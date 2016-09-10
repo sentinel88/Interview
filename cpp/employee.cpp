@@ -136,13 +136,28 @@ PermanentEmployee::~PermanentEmployee()
 }
 
 
+void
+PermanentEmployee::setDept(const string& inDept)
+{
+        Dept = inDept;
+}
+
+
+const string&
+PermanentEmployee::getDept() const
+{
+        return Dept;
+}
+
+
 ostream&
 operator<<(ostream& output, const PermanentEmployee *inEmployee)
 {
         //output << "Name: " << inEmployee->Name <<endl;
         //output << "Id: " << inEmployee->empId <<endl;
-	output << static_cast<const Employee&>*inEmployee;
-	output << inEmployee->Dept;
+	cout << "Inside the output function for permanent employee\n";
+	output << static_cast<const Employee*>(inEmployee);
+	output << "Dept: " <<inEmployee->Dept <<endl;
         return output;
 }
 
@@ -175,12 +190,27 @@ ContractEmployee::~ContractEmployee()
 }
 
 
+void
+ContractEmployee::setAgency(const string& inAgency)
+{
+        Agency = inAgency;
+}
+
+
+const string&
+ContractEmployee::getAgency() const
+{
+        return Agency;
+}
+
+
 ostream&
 operator<<(ostream& output, const ContractEmployee *inEmployee)
 {
         //output << "Name: " << inEmployee->Name <<endl;
         //output << "Id: " << inEmployee->empId <<endl;
-        output << static_cast<const Employee&>*inEmployee;
-        output << inEmployee->Agency;
+	cout << "Inside the output function for contract employee\n";
+        output << static_cast<const Employee*>(inEmployee);
+        output << "Agency: " <<inEmployee->Agency <<endl;
         return output;
 }

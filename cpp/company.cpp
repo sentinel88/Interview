@@ -12,17 +12,18 @@ static int global_list_size = _INIT_SIZE;
 
 void
 Company::_create_NewEmployee(Employee **ptr,
-		 	const Employee& inEmp, int inType)
+		 	//const Employee& inEmp, int inType)
+		 	Employee *inEmp, int inType)
 {
 	cout <<"\nInside create new employee\n";
 //	cout <<inEmp <<"\n" <<inType;
 	cout <<inType <<"\n";
 	if (!inType) {
 		cout <<"Inside if intype = 0\n";
-        	*ptr = new PermanentEmployee(static_cast<const PermanentEmployee&>(inEmp));
+        	*ptr = new PermanentEmployee(static_cast<const PermanentEmployee&>(*inEmp));
 	} else {
 		cout <<"Inside if intype = 1\n";
-                *ptr = new ContractEmployee(static_cast<const ContractEmployee&>(inEmp));
+                *ptr = new ContractEmployee(static_cast<const ContractEmployee&>(*inEmp));
 	}
 }
 
@@ -63,7 +64,7 @@ Company::Company(const Company &inComp) :
 	cout <<"This is the copy constructor for company class\n";
 	Payroll = new Employee*[global_list_size];
 	for (i = 0; i < inComp.empCount; i++) {
-		_create_NewEmployee(&Payroll[i], *(inComp.Payroll[i]), (inComp.Payroll[i])->getType());
+		_create_NewEmployee(&Payroll[i], inComp.Payroll[i], (inComp.Payroll[i])->getType());
 	}
 }
 
@@ -77,7 +78,8 @@ Company::~Company()
 		for (i = 0; i < empCount; i++) {
                 	delete Payroll[i];
         	}
-		delete [] Payroll;
+		//delete [] Payroll;
+		delete Payroll;
 	}
 }
 
@@ -129,17 +131,18 @@ Company::addEmployee(Employee *inEmp)
 		newPayroll = new Employee*[global_list_size + _INIT_SIZE];
 		for (i = 0; i < (empCount - 1); i++) {
 			//newPayroll[i] = Payroll[i];
-			_create_NewEmployee(&newPayroll[i], *(Payroll[i]), Payroll[i]->getType());
+			_create_NewEmployee(&newPayroll[i], Payroll[i], Payroll[i]->getType());
 		}	
-		for (i = 0; i < empCount; i++) {
+		for (i = 0; i < (empCount - 1); i++) {
                         delete Payroll[i];
                 }
-		delete [] Payroll;
+		//delete [] Payroll;
+		delete Payroll;
 		Payroll = newPayroll;
 		global_list_size += _INIT_SIZE;
 	} 
 	//Payroll[empCount - 1] = inEmp;
-	_create_NewEmployee(&Payroll[empCount - 1], inEmp, inEmp.getType());
+	_create_NewEmployee(&Payroll[empCount - 1], inEmp, inEmp->getType());
 }
 
 
@@ -222,10 +225,13 @@ operator<<(ostream& output, const Company& inComp)
                 return output;
         }
         for (i = 0; i < inComp.empCount; i++) {
-		if (ptr[i]->getType())
-			output << static_cast<ContractEmployee*>ptr[i];
-		else
-			output << static_cast<PermanentEmployee*>ptr[i];
+		if (ptr[i]->getType()) {
+			cout << "This is a contract employee being displayed\n";
+			output << static_cast<ContractEmployee*>(ptr[i]);
+		} else {
+			cout << "This is a permanent employee being displayed\n";
+			output << static_cast<PermanentEmployee*>(ptr[i]);
+		}
         }
 	return output;
 }
