@@ -48,14 +48,14 @@ heapsort(int *ptr, int size)
 	int i = size - 1;	
 	int temp = 0;
 
-	/* First build max heap */
+	/* First build max heap. This takes O(n) time */
 	build_max_heap(ptr, size);
 	printf("\nMax Heap\n");
         for (i = 0; i < size; i++) {
                 printf("%d ", ptr[i]);
         }
 	i = size - 1;	
-	/* Sort the max heap by calling extract max each time and heapify */
+	/* Sort the max heap by extracting root each time and replace it with the last slot in the array. Then heapify */
 	while (i >= 1) {
 		temp = ptr[0];
 		ptr[0] = ptr[i];
