@@ -2,6 +2,7 @@
 #define _COMP_H
 #include "employee.h"
 #include <iostream>
+#include <list>
 #define _INIT_SIZE 3
 
 class Company
@@ -28,7 +29,8 @@ class Company
 		std::string Name;
 		std::string Location;
 		static int empCount;
-		Employee **Payroll;
+		//Employee **Payroll;
+		std::list<Employee *> Payroll;
 		//void _create_NewEmployee(Employee **ptr, const Employee& inEmp, int inType);
 		void _create_NewEmployee(Employee **ptr, Employee *inEmp, int inType);
 };

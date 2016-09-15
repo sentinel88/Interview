@@ -31,15 +31,17 @@ bfs (int **adj_matrix, int *visited)
 	data = get_new_node(&source);
 	ret_val = insert_node_rear(&head, &tail, (void *)data); 
 	while ((node = delete_node(&head, &tail)) != -1) {
-		if (visited[node])
+		if (visited[node] == 1)
+		//if (visited[node])
 			continue;
-		//printf("node: %d\n", node);
+		printf("node: %d\n", node);
 		for (i = 0; i < count_nodes; i++) {
 			if (visited[i] || !adj_matrix[node][i])
 				continue;
 			data = get_new_node(&i);
 			//printf("Inserting node %d\n", i);
 			insert_node_rear(&head, &tail, (void *)data);
+			visited[i] = 2;
 		}	
 		visited[node] = 1;
 		printf("%d ", node + 1);
@@ -53,7 +55,7 @@ main (int argc, char *argv[])
 {
 	int **adj_matrix = NULL;
 	int i, j;
-	int *visited  = NULL;
+	int *visited  = NULL;    /* if visited[i] is 1 then it is visited, if it is 2 then it is discovered, if 0 then not yet discovered */
 
 	printf("\nEnter the number of nodes in the graph\n");
 	scanf(" %d", &count_nodes);

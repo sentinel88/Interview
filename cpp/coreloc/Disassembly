@@ -1,0 +1,16 @@
+=> 0x7fae0f639853 <_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKSbIS4_S5_T1_E+3>:	mov    -0x18(%rsi),%rdx
+   0x7fae0f639857 <_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKSbIS4_S5_T1_E+7>:	jmpq   0x7fae0f6005e0 <_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l@plt>
+   0x7fae0f63985c:	nopl   0x0(%rax)
+   0x7fae0f639860 <_ZSt7getlineIcSt11char_traitsIcESaIcEERSt13basic_istreamIT_T0_ES7_RSbIS4_S5_T1_E>:	push   %r12
+   0x7fae0f639862 <_ZSt7getlineIcSt11char_traitsIcESaIcEERSt13basic_istreamIT_T0_ES7_RSbIS4_S5_T1_E+2>:	push   %rbp
+   0x7fae0f639863 <_ZSt7getlineIcSt11char_traitsIcESaIcEERSt13basic_istreamIT_T0_ES7_RSbIS4_S5_T1_E+3>:	mov    %rdi,%rbp
+   0x7fae0f639866 <_ZSt7getlineIcSt11char_traitsIcESaIcEERSt13basic_istreamIT_T0_ES7_RSbIS4_S5_T1_E+6>:	push   %rbx
+   0x7fae0f639867 <_ZSt7getlineIcSt11char_traitsIcESaIcEERSt13basic_istreamIT_T0_ES7_RSbIS4_S5_T1_E+7>:	mov    (%rdi),%rax
+   0x7fae0f63986a <_ZSt7getlineIcSt11char_traitsIcESaIcEERSt13basic_istreamIT_T0_ES7_RSbIS4_S5_T1_E+10>:	mov    -0x18(%rax),%rax
+   0x7fae0f63986e <_ZSt7getlineIcSt11char_traitsIcESaIcEERSt13basic_istreamIT_T0_ES7_RSbIS4_S5_T1_E+14>:	mov    0xf0(%rdi,%rax,1),%rbx
+   0x7fae0f639876 <_ZSt7getlineIcSt11char_traitsIcESaIcEERSt13basic_istreamIT_T0_ES7_RSbIS4_S5_T1_E+22>:	test   %rbx,%rbx
+   0x7fae0f639879 <_ZSt7getlineIcSt11char_traitsIcESaIcEERSt13basic_istreamIT_T0_ES7_RSbIS4_S5_T1_E+25>:	je     0x7fae0f6398b8 <_ZSt7getlineIcSt11char_traitsIcESaIcEERSt13basic_istreamIT_T0_ES7_RSbIS4_S5_T1_E+88>
+   0x7fae0f63987b <_ZSt7getlineIcSt11char_traitsIcESaIcEERSt13basic_istreamIT_T0_ES7_RSbIS4_S5_T1_E+27>:	cmpb   $0x0,0x38(%rbx)
+   0x7fae0f63987f <_ZSt7getlineIcSt11char_traitsIcESaIcEERSt13basic_istreamIT_T0_ES7_RSbIS4_S5_T1_E+31>:	mov    %rsi,%r12
+   0x7fae0f639882 <_ZSt7getlineIcSt11char_traitsIcESaIcEERSt13basic_istreamIT_T0_ES7_RSbIS4_S5_T1_E+34>:	je     0x7fae0f6398a0 <_ZSt7getlineIcSt11char_traitsIcESaIcEERSt13basic_istreamIT_T0_ES7_RSbIS4_S5_T1_E+64>
+   0x7fae0f639884 <_ZSt7getlineIcSt11char_traitsIcESaIcEERSt13basic_istreamIT_T0_ES7_RSbIS4_S5_T1_E+36>:	movzbl 0x43(%rbx),%eax

@@ -1,6 +1,6 @@
 CC=g++
 #CFLAGS=-g -Wall -Wextra -Werror -I.
-CFLAGS=-g -I.
+CFLAGS=-g -I. -std=c++11
 DEPS=company.h employee.h
 OBJ=driver.o company.o employee.o
 

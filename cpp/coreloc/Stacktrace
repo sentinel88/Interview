@@ -1,0 +1,20 @@
+#0  0x00007fae0f639853 in std::basic_ostream<char, std::char_traits<char> >& std::operator<< <char, std::char_traits<char>, std::allocator<char> >(std::basic_ostream<char, std::char_traits<char> >&, std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+No symbol table info available.
+#1  0x0000000000403699 in operator<< (output=..., inEmployee=0xb6a110) at employee.cpp:160
+No locals.
+#2  0x0000000000402dd3 in operator<< (output=..., inComp=...) at company.cpp:264
+        emp = @0xb6a110: {_vptr.Employee = 0x404290 <vtable for Employee+16>, Name = {static npos = <optimized out>, _M_dataplus = {<std::allocator<char>> = {<__gnu_cxx::new_allocator<char>> = {<No data fields>}, <No data fields>}, _M_p = 0xb6a0b8 "nishanth"}}, empId = 123, Type = 0}
+        __for_range = @0x7ffc66cfd940: {<std::_List_base<Employee, std::allocator<Employee> >> = {_M_impl = {<std::allocator<std::_List_node<Employee> >> = {<__gnu_cxx::new_allocator<std::_List_node<Employee> >> = {<No data fields>}, <No data fields>}, _M_node = {_M_next = 0xb6a100, _M_prev = 0xb6a100}}}, <No data fields>}
+        __for_begin = {_M_node = 0xb6a100}
+        __for_end = {_M_node = 0x7ffc66cfd940}
+        i = 0
+#3  0x0000000000401653 in main () at driver.cpp:76
+        cObj = {Name = {static npos = <optimized out>, _M_dataplus = {<std::allocator<char>> = {<__gnu_cxx::new_allocator<char>> = {<No data fields>}, <No data fields>}, _M_p = 0xb6a058 "TUM"}}, Location = {static npos = <optimized out>, _M_dataplus = {<std::allocator<char>> = {<__gnu_cxx::new_allocator<char>> = {<No data fields>}, <No data fields>}, _M_p = 0xb6a028 "Munich"}}, static empCount = 1, Payroll = {<std::_List_base<Employee, std::allocator<Employee> >> = {_M_impl = {<std::allocator<std::_List_node<Employee> >> = {<__gnu_cxx::new_allocator<std::_List_node<Employee> >> = {<No data fields>}, <No data fields>}, _M_node = {_M_next = 0xb6a100, _M_prev = 0xb6a100}}}, <No data fields>}}
+        eObj = 0xb6a070
+        dupObj = 0x0
+        empString = {static npos = <optimized out>, _M_dataplus = {<std::allocator<char>> = {<__gnu_cxx::new_allocator<char>> = {<No data fields>}, <No data fields>}, _M_p = 0xb6a178 "engineering"}}
+        Type = 0
+        choice = 3
+        ch = 121 'y'
+        Name = {static npos = <optimized out>, _M_dataplus = {<std::allocator<char>> = {<__gnu_cxx::new_allocator<char>> = {<No data fields>}, <No data fields>}, _M_p = 0xb6a0b8 "nishanth"}}
+        Id = 123

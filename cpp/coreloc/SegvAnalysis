@@ -1,0 +1,4 @@
+Segfault happened at: 0x7fae0f639853 <_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKSbIS4_S5_T1_E+3>:	mov    -0x18(%rsi),%rdx
+PC (0x7fae0f639853) ok
+source "-0x18(%rsi)" (0x00000019) not located in a known VMA region (needed readable region)!
+destination "%rdx" ok

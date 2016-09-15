@@ -7,9 +7,9 @@
 using namespace std;
 
 int Company::empCount;
-static int global_list_size = _INIT_SIZE;
+//static int global_list_size = _INIT_SIZE;
 
-
+/*
 void
 Company::_create_NewEmployee(Employee **ptr,
 		 	//const Employee& inEmp, int inType)
@@ -26,7 +26,7 @@ Company::_create_NewEmployee(Employee **ptr,
                 *ptr = new ContractEmployee(static_cast<const ContractEmployee&>(*inEmp));
 	}
 }
-
+*/
 
 Company::Company() :
 	Name("Unknown"), Location("Unknown")
@@ -38,7 +38,7 @@ Company::Company() :
 	empCount = 0;
 #endif
 	empCount = 0;
-	Payroll = new Employee*[_INIT_SIZE];
+	//Payroll = new Employee*[_INIT_SIZE];
 }
 
 
@@ -52,7 +52,7 @@ Company::Company(const string& inName, const string& inLocation) :
 	empCount = 0;
 #endif
 	empCount = 0;
-	Payroll = new Employee*[_INIT_SIZE];
+	//Payroll = new Employee*[_INIT_SIZE];
 }
 
 
@@ -60,11 +60,27 @@ Company::Company(const Company &inComp) :
 	Name(inComp.Name), Location(inComp.Location)
 {
 	int i = 0;	
+	Employee *ptr = NULL;
 
 	cout <<"This is the copy constructor for company class\n";
-	Payroll = new Employee*[global_list_size];
+/*
+	Payroll = new Employee*[global_list_size]; */
+	list<Employee *>::const_iterator iter = (inComp.Payroll).begin();
 	for (i = 0; i < inComp.empCount; i++) {
-		_create_NewEmployee(&Payroll[i], inComp.Payroll[i], (inComp.Payroll[i])->getType());
+		//_create_NewEmployee(&Payroll[i], inComp.Payroll[i], (inComp.Payroll[i])->getType());
+		//if (inComp.Payroll[i]->getType()) {
+		if ((*iter)->getType()) {
+			//ptr = new ContractEmployee(inComp.Payroll[i]);
+			ptr = new ContractEmployee(*(static_cast<ContractEmployee *>(*iter)));
+			Payroll.push_back(ptr);
+		} else {
+			//ptr = new PermanentEmployee(inComp.Payroll[i]);
+			ptr = new PermanentEmployee(*(static_cast<PermanentEmployee *>(*iter)));
+			Payroll.push_back(ptr);
+		}
+		//*Payroll[i] = *(inComp.Payroll[i]);
+		*ptr = *(*iter);
+		++iter;
 	}
 }
 
@@ -74,13 +90,18 @@ Company::~Company()
 	int i = 0;
 
 	cout << "Deleting the company and all its employee entries";
-	if (Payroll != NULL && empCount) {
-		for (i = 0; i < empCount; i++) {
-                	delete Payroll[i];
+
+	if (empCount) {
+		for (list<Employee *>::iterator iter = Payroll.begin(); 
+			iter != Payroll.end(); ++iter) {
+		//for (i = 0; i < empCount; i++) {
+                	//delete Payroll[i];
+			delete *iter;
         	}
 		//delete [] Payroll;
-		delete Payroll;
+		//delete Payroll;
 	}
+
 }
 
 
@@ -123,10 +144,11 @@ void
 //Company::addEmployee(const Employee &inEmp)
 Company::addEmployee(Employee *inEmp)
 {
-	Employee **newPayroll = NULL;	
-	int i;
+	//Employee **newPayroll = NULL;	
+	//int i;
 
 	empCount++;
+/*
 	if (empCount > global_list_size) {
 		newPayroll = new Employee*[global_list_size + _INIT_SIZE];
 		for (i = 0; i < (empCount - 1); i++) {
@@ -143,6 +165,8 @@ Company::addEmployee(Employee *inEmp)
 	} 
 	//Payroll[empCount - 1] = inEmp;
 	_create_NewEmployee(&Payroll[empCount - 1], inEmp, inEmp->getType());
+*/
+	Payroll.push_back(inEmp);
 }
 
 
@@ -150,20 +174,35 @@ void
 Company::deleteEmployee(int inId)
 {
 	int i = 0;
-	Employee **ptr = Payroll;
+	//Employee **ptr = Payroll;
 	bool found = false;
+	//Employee *ptr = NULL;
 
 	if (empCount == 0) {
 		cout << "No employees in the company to remove " << endl;
 		return;
 	}
-	for (i = 0; i < empCount; i++) {
+	/* for (i = 0; i < empCount; i++) {
 		if (inId == ptr[i]->getId()) {
 			cout << "Employee with ID: " << inId << "found. Deleting the entry" << endl;
 			ptr[i]->setName("Unkown");
 			ptr[i]->setId(0);
 			//empCount--;
 			found = true;
+		}
+	} */
+	//for (auto iter = begin (Payroll); iter != end (Payroll); ++iter) {
+	for (std::list<Employee *>::iterator iter = Payroll.begin(); iter != Payroll.end(); ++iter) {
+		cout <<"Inside the for loop\n";
+		if (inId == (*iter)->getId()) {
+			cout << "Employee with ID: " << inId << "found. Deleting the entry" << endl;
+                        empCount--;
+                        found = true;
+			//ptr = *iter;
+			//delete *iter;
+			iter = Payroll.erase(iter);
+			//break;
+			//delete ptr;
 		}
 	}
 	if (found == false) {
@@ -176,7 +215,7 @@ void
 Company::display() const
 {
 	int i = 0;
-	Employee **ptr = Payroll;
+	//Employee **ptr = Payroll;
 
 	cout << "Company: " << getName() << endl;
 	cout << "Location: " << getLocation() << endl;
@@ -186,9 +225,15 @@ Company::display() const
 		cout << "No employees in the company " << endl;
 		return;
 	}
+/*
 	for (i = 0; i < empCount; i++) {
 		cout << "EmpName: " << ptr[i]->getName() << endl;
 		cout << "EmpId: " << ptr[i]->getId() << endl << endl << endl;
+	}
+*/
+	for (const Employee *emp : Payroll) {
+		cout << "EmpName: " << emp->getName() << endl;
+                cout << "EmpId: " << emp->getId() << endl << endl << endl;
 	}
 }
 
@@ -214,7 +259,7 @@ ostream&
 operator<<(ostream& output, const Company& inComp)
 {
 	int i = 0;
-        Employee **ptr = inComp.Payroll;
+        //Employee **ptr = inComp.Payroll;
 
         output << "Company: " << inComp.getName() << endl;
         output << "Location: " << inComp.getLocation() << endl;
@@ -224,7 +269,7 @@ operator<<(ostream& output, const Company& inComp)
                 output << "No employees in the company " << endl;
                 return output;
         }
-        for (i = 0; i < inComp.empCount; i++) {
+        /*for (i = 0; i < inComp.empCount; i++) {
 		if (ptr[i]->getType()) {
 			cout << "This is a contract employee being displayed\n";
 			output << static_cast<ContractEmployee*>(ptr[i]);
@@ -232,6 +277,15 @@ operator<<(ostream& output, const Company& inComp)
 			cout << "This is a permanent employee being displayed\n";
 			output << static_cast<PermanentEmployee*>(ptr[i]);
 		}
+        }*/
+	for (const Employee *emp : inComp.Payroll) {
+		if (emp->getType()) {
+                        cout << "This is a contract employee being displayed\n";
+                        output << static_cast<const ContractEmployee *>(emp);
+                } else {
+                        cout << "This is a permanent employee being displayed\n";
+                        output << static_cast<const PermanentEmployee *>(emp);
+                }
         }
 	return output;
 }

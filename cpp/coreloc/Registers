@@ -1,0 +1,24 @@
+rax            0x6062c0	6316736
+rbx            0xb6a128	11968808
+rcx            0x203a7470	540701808
+rdx            0x7fae0f88ff18	140385561673496
+rsi            0x31	49
+rdi            0x6062c0	6316736
+rbp            0x7ffc66cfd870	0x7ffc66cfd870
+rsp            0x7ffc66cfd848	0x7ffc66cfd848
+r8             0x7fae0f38b9e0	140385556412896
+r9             0x40411b	4210971
+r10            0xcccccccccccccccd	-3689348814741910323
+r11            0x246	582
+r12            0x4011f0	4198896
+r13            0x7ffc66cfda40	140722033384000
+r14            0x0	0
+r15            0x0	0
+rip            0x7fae0f639853	0x7fae0f639853 <std::basic_ostream<char, std::char_traits<char> >& std::operator<< <char, std::char_traits<char>, std::allocator<char> >(std::basic_ostream<char, std::char_traits<char> >&, std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)+3>
+eflags         0x10202	[ IF RF ]
+cs             0x33	51
+ss             0x2b	43
+ds             0x0	0
+es             0x0	0
+fs             0x0	0
+gs             0x0	0

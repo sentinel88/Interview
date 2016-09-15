@@ -1,0 +1,31 @@
+00400000-00406000 r-xp 00000000 08:08 6165192                            /home/nishanth/Interview/cpp/driver
+00605000-00606000 r--p 00005000 08:08 6165192                            /home/nishanth/Interview/cpp/driver
+00606000-00607000 rw-p 00006000 08:08 6165192                            /home/nishanth/Interview/cpp/driver
+00b6a000-00b8b000 rw-p 00000000 00:00 0                                  [heap]
+7fae0ecc5000-7fae0edca000 r-xp 00000000 08:08 1048591                    /lib/x86_64-linux-gnu/libm-2.19.so
+7fae0edca000-7fae0efc9000 ---p 00105000 08:08 1048591                    /lib/x86_64-linux-gnu/libm-2.19.so
+7fae0efc9000-7fae0efca000 r--p 00104000 08:08 1048591                    /lib/x86_64-linux-gnu/libm-2.19.so
+7fae0efca000-7fae0efcb000 rw-p 00105000 08:08 1048591                    /lib/x86_64-linux-gnu/libm-2.19.so
+7fae0efcb000-7fae0f186000 r-xp 00000000 08:08 1048675                    /lib/x86_64-linux-gnu/libc-2.19.so
+7fae0f186000-7fae0f385000 ---p 001bb000 08:08 1048675                    /lib/x86_64-linux-gnu/libc-2.19.so
+7fae0f385000-7fae0f389000 r--p 001ba000 08:08 1048675                    /lib/x86_64-linux-gnu/libc-2.19.so
+7fae0f389000-7fae0f38b000 rw-p 001be000 08:08 1048675                    /lib/x86_64-linux-gnu/libc-2.19.so
+7fae0f38b000-7fae0f390000 rw-p 00000000 00:00 0 
+7fae0f390000-7fae0f3a6000 r-xp 00000000 08:08 1052646                    /lib/x86_64-linux-gnu/libgcc_s.so.1
+7fae0f3a6000-7fae0f5a5000 ---p 00016000 08:08 1052646                    /lib/x86_64-linux-gnu/libgcc_s.so.1
+7fae0f5a5000-7fae0f5a6000 rw-p 00015000 08:08 1052646                    /lib/x86_64-linux-gnu/libgcc_s.so.1
+7fae0f5a6000-7fae0f68c000 r-xp 00000000 08:08 8655018                    /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.19
+7fae0f68c000-7fae0f88b000 ---p 000e6000 08:08 8655018                    /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.19
+7fae0f88b000-7fae0f893000 r--p 000e5000 08:08 8655018                    /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.19
+7fae0f893000-7fae0f895000 rw-p 000ed000 08:08 8655018                    /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.19
+7fae0f895000-7fae0f8aa000 rw-p 00000000 00:00 0 
+7fae0f8aa000-7fae0f8cd000 r-xp 00000000 08:08 1048672                    /lib/x86_64-linux-gnu/ld-2.19.so
+7fae0faa7000-7fae0faac000 rw-p 00000000 00:00 0 
+7fae0fac8000-7fae0facc000 rw-p 00000000 00:00 0 
+7fae0facc000-7fae0facd000 r--p 00022000 08:08 1048672                    /lib/x86_64-linux-gnu/ld-2.19.so
+7fae0facd000-7fae0face000 rw-p 00023000 08:08 1048672                    /lib/x86_64-linux-gnu/ld-2.19.so
+7fae0face000-7fae0facf000 rw-p 00000000 00:00 0 
+7ffc66cde000-7ffc66d00000 rw-p 00000000 00:00 0                          [stack]
+7ffc66d6c000-7ffc66d6e000 r-xp 00000000 00:00 0                          [vdso]
+7ffc66d6e000-7ffc66d70000 r--p 00000000 00:00 0                          [vvar]
+ffffffffff600000-ffffffffff601000 r-xp 00000000 00:00 0                  [vsyscall]

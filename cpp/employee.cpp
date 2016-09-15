@@ -157,6 +157,7 @@ operator<<(ostream& output, const PermanentEmployee *inEmployee)
         //output << "Id: " << inEmployee->empId <<endl;
 	cout << "Inside the output function for permanent employee\n";
 	output << static_cast<const Employee*>(inEmployee);
+	cout << "Reached here\n";
 	output << "Dept: " <<inEmployee->Dept <<endl;
         return output;
 }
