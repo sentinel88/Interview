@@ -1,4 +1,3 @@
-std::basic_ostream<char, std::char_traits<char> >& std::operator<< <char, std::char_traits<char>, std::allocator<char> >(std::basic_ostream<char, std::char_traits<char> >&, std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
-operator<< (output=..., inEmployee=0xb6a110) at employee.cpp:160
-operator<< (output=..., inComp=...) at company.cpp:264
-main () at driver.cpp:76
+?? ()
+Company::~Company (this=0x7fff558321a0, __in_chrg=<optimized out>) at company.cpp:106
+main () at driver.cpp:100

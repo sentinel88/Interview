@@ -12,7 +12,7 @@ get_new_employee(int inType)
 {
 	Employee *ptr = NULL;
 
-        if (!inType)
+        if (!inType) 
                 ptr = new PermanentEmployee();
         else
                 ptr = new ContractEmployee();
@@ -39,6 +39,7 @@ int main()
                 cout <<"2. Remove Employee\n";
                 cout <<"3. Display Payroll\n";
 		cout <<"4. Duplicate the Company and Display its payroll\n";
+		cout <<"5. Increase salaries of the employees on the payroll\n";
                 cout <<"\nEnter your choice\n";
                 cin >>choice;
                 switch(choice)
@@ -79,6 +80,9 @@ int main()
 				dupObj = new Company(cObj);
 				cout <<*dupObj;
 				break;
+			case 5:
+				cObj.annualhike();
+				break;
                         default:
                                 cout << "\nWrong choice. Doing nothing\n";
                 }
@@ -93,9 +97,10 @@ int main()
 		cout <<"Deleting the duplicate company\n";
 		delete dupObj;
 	}
+	/*
 	if (eObj) {
 		cout <<"Deleting the local employee\n";
 		delete eObj;
-	}
+	}*/
 	return 0;
 }

@@ -1,9 +1,9 @@
 Name:	driver
 State:	S (sleeping)
-Tgid:	17289
+Tgid:	2879
 Ngid:	0
-Pid:	17289
-PPid:	12525
+Pid:	2879
+PPid:	26060
 TracerPid:	0
 Uid:	1000	1000	1000	1000
 Gid:	1000	1000	1000	1000
@@ -13,13 +13,13 @@ VmPeak:	   12688 kB
 VmSize:	   12688 kB
 VmLck:	       0 kB
 VmPin:	       0 kB
-VmHWM:	    1372 kB
-VmRSS:	    1372 kB
+VmHWM:	    1428 kB
+VmRSS:	    1428 kB
 VmData:	     292 kB
 VmStk:	     140 kB
 VmExe:	      24 kB
 VmLib:	    3964 kB
-VmPTE:	      48 kB
+VmPTE:	      44 kB
 VmSwap:	       0 kB
 Threads:	1
 SigQ:	0/30583
@@ -37,5 +37,5 @@ Cpus_allowed:	ff
 Cpus_allowed_list:	0-7
 Mems_allowed:	00000000,00000001
 Mems_allowed_list:	0
-voluntary_ctxt_switches:	9
-nonvoluntary_ctxt_switches:	19
+voluntary_ctxt_switches:	8
+nonvoluntary_ctxt_switches:	18

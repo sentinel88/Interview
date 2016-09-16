@@ -12,14 +12,17 @@ Employee::Employee()
 	cout << "Inside default constructor" << endl;
 	Name = "Unknown";
 	empId = -9999;
+	salary = 500;
 }
 
 
-Employee::Employee(const string& inName, int inId)
+Employee::Employee(const string& inName, int inId) :
+	Name(inName), empId(inId)
 {
 	cout << "Inside parameterized constructor" << endl;
-	Name = inName;
-	empId = inId;
+	salary = 500;
+	//Name = inName;
+	//empId = inId;
 }
 
 
@@ -83,6 +86,7 @@ Employee::print() const
 {
 	cout << "Name: " << Name <<endl;
 	cout << "Id: " << empId <<endl;
+	cout << "Salary: " <<salary <<endl;
 }
 
 
@@ -99,11 +103,23 @@ Employee::operator=(const Employee &inEmp)
 }
 
 
+void
+Employee::incSalary()
+{
+	cout <<"In the function increase salary\n";
+	if (!Type)
+		salary = salary + 500;
+	else
+		salary = salary + 200;
+}
+
+
 ostream&
 operator<<(ostream& output, const Employee *inEmployee)
 {
 	output << "Name: " << inEmployee->Name <<endl;
 	output << "Id: " << inEmployee->empId <<endl;
+	output << "Salary: " << inEmployee->salary <<endl;
 	return output;
 }
 
@@ -150,6 +166,15 @@ PermanentEmployee::getDept() const
 }
 
 
+void
+PermanentEmployee::incSalary()
+{
+	cout <<"Salary increment function for a permanent employee\n";
+	//salary = salary + 500;
+	Employee::incSalary();
+}
+
+
 ostream&
 operator<<(ostream& output, const PermanentEmployee *inEmployee)
 {
@@ -166,7 +191,7 @@ operator<<(ostream& output, const PermanentEmployee *inEmployee)
 ContractEmployee::ContractEmployee() :
         Agency("Unknown")
 {
-        cout <<"This is the default constructor for the Permanent Employee\n";
+        cout <<"This is the default constructor for the Contract Employee\n";
 }
 
 
@@ -203,6 +228,16 @@ ContractEmployee::getAgency() const
 {
         return Agency;
 }
+
+
+void
+ContractEmployee::incSalary()
+{
+	cout <<"Salary increment function for a contract employee\n";
+	//salary = salary + 200;
+	Employee::incSalary();
+}
+
 
 
 ostream&

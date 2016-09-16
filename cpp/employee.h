@@ -16,12 +16,14 @@ class Employee
 		void setType(int inType);
 		int getType() const;
 		void print() const;
+		virtual void incSalary();
 		Employee& operator=(const Employee& inEmp);
 		friend std::ostream& operator<<(std::ostream& output, const Employee *inEmployee);
 	private:
 		std::string Name;
 		int empId;
 		int Type;
+		int salary;
 };
 
 
@@ -34,6 +36,7 @@ class PermanentEmployee : public Employee
 		virtual ~PermanentEmployee();
 		const std::string& getDept() const;
 		void setDept(const std::string& inDept);
+		void incSalary();
 		friend std::ostream& operator<<(std::ostream& output, const PermanentEmployee *inEmployee);
 	private:
 		std::string Dept;
@@ -49,6 +52,7 @@ class ContractEmployee : public Employee
                 virtual ~ContractEmployee();
 		const std::string& getAgency() const;
 		void setAgency(const std::string& inAgency);
+		void incSalary();
 		friend std::ostream& operator<<(std::ostream& output, const ContractEmployee *inEmployee);
         private:
                 std::string Agency;

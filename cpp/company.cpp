@@ -87,10 +87,6 @@ Company::Company(const Company &inComp) :
 
 Company::~Company()
 {
-	int i = 0;
-	Employee *ptr = NULL;
-	//ostream output;
-
 	cout << "Deleting the company and all its employee entries\n";
 
 	if (empCount) {
@@ -99,11 +95,8 @@ Company::~Company()
 			cout <<"Deleting the employee entry\n";
 		//for (i = 0; i < empCount; i++) {
                 	//delete Payroll[i];
-			ptr = *iter;
 			//delete ptr;
-			//delete *iter;
-			iter = Payroll.erase(iter);
-			//delete ptr;
+			delete *iter;
         	}
 		//delete [] Payroll;
 		//delete Payroll;
@@ -207,7 +200,7 @@ Company::deleteEmployee(int inId)
                         empCount--;
                         found = true;
 			//ptr = *iter;
-			//delete *iter;
+			delete *iter;
 			iter = Payroll.erase(iter);
 			//break;
 			//delete ptr;
@@ -216,6 +209,22 @@ Company::deleteEmployee(int inId)
 	if (found == false) {
 		cout << "There was no employee with this id found on the payroll\n";
 	}
+}
+
+
+void
+Company::annualhike()
+{
+        cout << "Hiking the salaries of the employees in the company\n";
+
+        if (empCount) {
+                for (list<Employee *>::iterator iter = Payroll.begin();
+                        iter != Payroll.end(); ++iter) {
+                        (*iter)->incSalary();
+                }
+        }
+        cout <<"Finished appraisal cycle\n";
+
 }
 
 

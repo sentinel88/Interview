@@ -21,6 +21,7 @@ class Company
 		void addEmployee(Employee *inEmp);
 		void deleteEmployee(int inId);
 		void display() const;	
+		void annualhike();
 		//Company& operator+(const Employee &inEmp);
 		Company& operator+(Employee *inEmp);
 		Company& operator-(int Id);
