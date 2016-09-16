@@ -88,19 +88,27 @@ Company::Company(const Company &inComp) :
 Company::~Company()
 {
 	int i = 0;
+	Employee *ptr = NULL;
+	//ostream output;
 
-	cout << "Deleting the company and all its employee entries";
+	cout << "Deleting the company and all its employee entries\n";
 
 	if (empCount) {
 		for (list<Employee *>::iterator iter = Payroll.begin(); 
 			iter != Payroll.end(); ++iter) {
+			cout <<"Deleting the employee entry\n";
 		//for (i = 0; i < empCount; i++) {
                 	//delete Payroll[i];
-			delete *iter;
+			ptr = *iter;
+			//delete ptr;
+			//delete *iter;
+			iter = Payroll.erase(iter);
+			//delete ptr;
         	}
 		//delete [] Payroll;
 		//delete Payroll;
 	}
+	cout <<"Finished deleting the company\n";
 
 }
 

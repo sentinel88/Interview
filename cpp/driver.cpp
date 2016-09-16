@@ -89,9 +89,13 @@ int main()
                         break;
                 }
         }
-	if (dupObj)
+	if (dupObj) {
+		cout <<"Deleting the duplicate company\n";
 		delete dupObj;
-	if (eObj)
+	}
+	if (eObj) {
+		cout <<"Deleting the local employee\n";
 		delete eObj;
+	}
 	return 0;
 }
