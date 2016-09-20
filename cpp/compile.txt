@@ -1,4 +1,0 @@
-g++ -c -o driver.o driver.cpp -g -I. -std=c++11
-g++ -c -o company.o company.cpp -g -I. -std=c++11
-g++ -c -o employee.o employee.cpp -g -I. -std=c++11
-g++ -o driver driver.o company.o employee.o -g -I. -std=c++11

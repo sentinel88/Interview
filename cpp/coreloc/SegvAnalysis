@@ -1,2 +1,0 @@
-Segfault happened at: 0x31:	Cannot access memory at address 0x31
-PC (0x00000031) not located in a known VMA region (needed executable region)!
