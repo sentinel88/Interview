@@ -7,15 +7,15 @@
 using namespace std;
 
 
-static Employee*
+static Employee<int>*
 get_new_employee(int inType)
 {
-	Employee *ptr = NULL;
+	Employee<int> *ptr = NULL;
 
         if (!inType) 
-                ptr = new PermanentEmployee();
+                ptr = new PermanentEmployee<int>();
         else
-                ptr = new ContractEmployee();
+                ptr = new ContractEmployee<int>();
 
 	return ptr;
 }
@@ -24,7 +24,7 @@ get_new_employee(int inType)
 int main()
 {
 	Company cObj("TUM", "Munich");
-	Employee *eObj = NULL;
+	Employee<int> *eObj = NULL;
 	Company *dupObj = NULL;
 	int choice;
 	char ch;
@@ -58,11 +58,11 @@ int main()
 				if (Type) {
 					cout << "Enter the agency of this contract employee\n";
 					cin >>empString;
-					(static_cast<ContractEmployee*>(eObj))->setAgency(empString);
+					(static_cast<ContractEmployee<int>*>(eObj))->setAgency(empString);
 				} else {
 					cout << "Enter the department of this permanent employee\n";
 					cin >>empString;
-					(static_cast<PermanentEmployee*>(eObj))->setDept(empString);
+					(static_cast<PermanentEmployee<int>*>(eObj))->setDept(empString);
 				}
                                 //cObj.addEmployee(eObj);
 				cObj = cObj + eObj;
