@@ -27,6 +27,9 @@ class Employee
 		int getId() const;
 		void setType(int inType);
 		int getType() const;
+		void setSalary(T inSalary);
+		//int getSalary() const;
+		T getSalary() const;
 		void print() const;
 		virtual void incSalary();
 		Employee<T>& operator=(const Employee<T>& inEmp);
@@ -167,6 +170,21 @@ int
 Employee<T>::getType() const
 {
         return Type;
+}
+
+
+template <typename T>
+void
+Employee<T>::setSalary(T inSalary)
+{
+        salary = inSalary;
+}
+
+
+template <typename T>
+T Employee<T>::getSalary() const
+{
+        return salary;
 }
 
 

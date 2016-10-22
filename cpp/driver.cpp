@@ -32,6 +32,7 @@ int main()
 	std::string empString;
 	int Id;
 	int Type;
+	int Salary;
 	
 	while(1) {
 		cout <<"\nMENU\n\n";
@@ -49,12 +50,15 @@ int main()
                                 cin >> Name;
 				cout << "\nEnter the employee id\n";
 				cin >> Id;
+				cout << "\nEnter the salary of the employee\n";
+				cin >>Salary;
 				cout << "\nEnter the type of the employee\n";
 				cin >> Type;
 				eObj = get_new_employee(Type);
 				eObj->setName(Name);
 				eObj->setId(Id);
 				eObj->setType(Type);
+				eObj->setSalary(Salary);
 				if (Type) {
 					cout << "Enter the agency of this contract employee\n";
 					cin >>empString;
