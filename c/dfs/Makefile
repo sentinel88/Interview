@@ -1,15 +1,15 @@
 CC=gcc
 CFLAGS=-I.
 DEPS=list.h
-OBJ=bfs.o list.o
+OBJ=dfs.o list.o
 
 %.o: %.c $(DEPS)
 	$(CC) -c -o $@ $< $(CFLAGS)
 
-bfs: $(OBJ)
+dfs: $(OBJ)
 	$(CC) -o $@ $^ $(CFLAGS)
 
 .PHONY: clean
 
 clean: 
-	rm -f *.o core bfs
+	rm -f *.o core dfs
