@@ -59,7 +59,7 @@ int main (int argc, char *argv[])
 	printf("\nThe input string is: %s\n", str);
 	printf("\nEnter the test string to perform pattern match\n");
 	fgets(str1, _INIT_SIZE, stdin);
-	str1[strlen(str1) - 1] = '\0';
+	str1[strlen(str1) - 1] = '\0';   // fgets already stores a terminating NULL byte after the last character in the buffer
 	printf("\nThe test string to match is: %s", str1);
 	ret_val = pattern_match(str, str1);
 
