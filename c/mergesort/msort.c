@@ -14,11 +14,18 @@ merge (int *ptr, int low, int mid, int high)
 	int larr[n1], rarr[n2];
 	int k = 0;
 
-	while (i <= mid)
+	printf("low = %d mid = %d high = %d n1 = %d, n2 = %d\n", low, mid, high, n1, n2);
+	while (i <= mid) {
 		larr[k++] = ptr[i++];
+		printf("%d ", larr[k - 1]);
+	}
+	printf("\n");
 	k = 0;
-	while (j < high)
+	while (j <= high) {
 		rarr[k++] = ptr[j++];
+		printf("%d ", rarr[k - 1]);
+	}
+	printf("\n");
 	i = 0;
 	j = 0;
 	k = low;
@@ -26,19 +33,20 @@ merge (int *ptr, int low, int mid, int high)
 	while ( (i < n1) && (j < n2)) {
 		if (larr[i] <= rarr[j]) {
 			ptr[k++] = larr[i++];
-			continue;
+		} else {
+			ptr[k++] = rarr[j++];
 		}
-		ptr[k++] = rarr[j++];
+		printf("%d ", ptr[k - 1]);
 	}
 	while (i < n1)
 		ptr[k++] = larr[i++];
 	while (j < n2)
 		ptr[k++] = rarr[j++];
 	printf("\nMerged Array\n");
-	for (i = low; i < high; i++) {
+	for (i = low; i <= high; i++) {
 		printf("%d ", ptr[i]);
 	}
-	printf("\n");
+	printf("\n\n");
 	//printf("\nExiting merge\n");
 }
 
@@ -62,7 +70,8 @@ mergesort(int *ptr, int low, int high)
 int 
 main(int argc, char *argv[])
 {
-	int array[] = {23, 13, 15, 2, 71, 46, 89, 22, 10, 32};
+	//int array[] = {23, 13, 15, 2, 71, 46, 89, 22, 10, 32};
+	int array[] = {12, 11, 13, 5, 6, 7};
 	int i = 0;
 	int size = (sizeof(array) / sizeof(array[0]));
 
