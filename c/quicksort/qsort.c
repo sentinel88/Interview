@@ -69,7 +69,8 @@ int
 main(int argc, char *argv[])
 {
 	//int array[] = {23, 13, 15, 2, 71, 46, 89, 22, 10, 32};
-	int array[] = {12, 11, 13, 5, 6, 7};
+	//int array[] = {12, 11, 13, 5, 6, 7};
+	int array[] = {5, 2, 6, 1, 3, 4};
 	int i = 0;
 	int size = (sizeof(array) / sizeof(array[0]));
 
