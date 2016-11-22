@@ -1,0 +1,1 @@
+1.   Counting the number of set bits in an integer can be done by performing the operation (n & n-1) repeatedly until the result becomes 0.
