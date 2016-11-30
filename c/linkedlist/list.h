@@ -22,4 +22,7 @@ delete_node_pos (struct node **head, int pos);
 extern void
 print_list (struct node *head);
 
+extern struct node *
+reverse(struct node *ptr);
+
 #endif

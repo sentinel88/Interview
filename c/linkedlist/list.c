@@ -177,3 +177,46 @@ print_list (struct node *head)
 
 	printf("\nExiting print list function\n");	
 }
+
+#ifdef DONT_INCLUDE
+/* Recursively reverse the linked list */
+extern struct node *
+reverse (struct node *ptr)
+{
+	printf("\nInside the reverse function\n");
+
+	struct node *revhead = NULL;
+
+	if ((ptr == NULL) || (ptr->next == NULL))
+		return ptr;
+		
+	revhead = reverse(ptr->next);
+	ptr->next->next = ptr;
+	ptr->next = NULL;
+	
+	return revhead;
+}
+#endif
+
+/* Reverse the linked list */
+extern struct node *
+reverse (struct node *ptr)
+{
+	printf("\nInside the reverse function\n");
+
+	struct node *prevnode = NULL;
+	struct node *temp = NULL;
+
+	if (ptr == NULL)
+		return ptr;
+		
+	while (ptr) {
+		temp = ptr->next;
+		ptr->next = prevnode;
+		prevnode = ptr;
+		ptr = temp;
+	}
+
+	printf("\nExiting the reverse function\n");
+	return prevnode;
+}

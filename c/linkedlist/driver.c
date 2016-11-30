@@ -71,7 +71,7 @@ int main (int argc, char *argv[])
 				print_list(head);
 				break;
 			case 6:
-				//reverse_list(&head);	
+				head = reverse(head);	
 				break;
 			default:
 				printf("\nWrong choice. Doing nothing\n");
