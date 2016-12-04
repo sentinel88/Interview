@@ -25,4 +25,7 @@ print_list (struct node *head);
 extern struct node *
 reverse(struct node *ptr);
 
+extern void
+pairwise_swap (struct node **head);
+
 #endif

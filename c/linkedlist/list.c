@@ -220,3 +220,30 @@ reverse (struct node *ptr)
 	printf("\nExiting the reverse function\n");
 	return prevnode;
 }
+
+
+extern void
+pairwise_swap(struct node **head)
+{
+	struct node *ptr = *head;
+	struct node *temp = NULL;
+
+	if (*head == NULL)
+		return;
+	while (ptr) {
+		temp = ptr->next;
+		if (temp == NULL || temp->next == NULL) 
+			break;
+		ptr->next = ptr->next->next;
+		/* Better optimization is to swap the if else blocks since the current if block will be tested in every iteration even
+		   though it gets executed only in the first iteration */
+		if (ptr == *head) {
+			*head = temp;
+			temp->next = ptr;
+		} else {
+			temp->next = ptr->next->next;
+			ptr->next->next = temp;
+			ptr = temp;
+		}
+	}
+}

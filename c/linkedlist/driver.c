@@ -33,6 +33,7 @@ int main (int argc, char *argv[])
 		printf("4. Delete from a position\n");
 		printf("5. Display\n");
 		printf("6. Reverse the linked list\n");
+		printf("7. Pairwise Swap\n");
 		printf("\nEnter your choice\n");
 		scanf("%d", &choice);
 		switch (choice)
@@ -72,6 +73,9 @@ int main (int argc, char *argv[])
 				break;
 			case 6:
 				head = reverse(head);	
+				break;
+			case 7:
+				pairwise_swap(&head);
 				break;
 			default:
 				printf("\nWrong choice. Doing nothing\n");
