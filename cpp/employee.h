@@ -293,7 +293,7 @@ operator<<(ostream& output, const PermanentEmployee<T> *inEmployee)
         //output << "Name: " << inEmployee->Name <<endl;
         //output << "Id: " << inEmployee->empId <<endl;
         cout << "Inside the output function for permanent employee\n";
-        output << static_cast<const Employee<T>*>(inEmployee);
+        output << static_cast<const Employee<T>*>(inEmployee);   /* Upcasting here: Might be better to use re interpret cast */
         cout << "Reached here\n";
         output << "Dept: " <<inEmployee->Dept <<endl;
         return output;
