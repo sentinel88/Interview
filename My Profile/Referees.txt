@@ -16,6 +16,7 @@ Anuradha / Shreyankh:	QualComm
 Vinay Shekhar:		Citrix
 Swarn:			Juniper, Arista and others
 Ranajoy Malakar:	@Siemens [Need to decide within this week]
+Sanoj:			Red Hat, Symantec
 
 
 
@@ -26,3 +27,7 @@ Oracle:		Waiting for response from Vignan. Also send him a list of companies whe
 Dell-EMC:	Sent resume, waiting for reply
 InfoGain:	Expected interview schedule in Jan 1st week
 
+
+Apply to:
+
+Cohesity
