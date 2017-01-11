@@ -28,4 +28,7 @@ reverse(struct node *ptr);
 extern void
 pairwise_swap (struct node **head);
 
+extern void
+merge_list (struct node *head1, struct node *head2);
+
 #endif
