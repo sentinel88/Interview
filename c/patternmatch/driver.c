@@ -33,7 +33,7 @@ pattern_match (char *str, char *str1)
 			ptr1++;
 		}
 		printf("\n");
-		if (*ptr1 == '\0') {
+		df (*ptr1 == '\0') {
 			printf("\nPattern match successful\n");
 			break;
 		}

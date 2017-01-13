@@ -23,4 +23,13 @@ inorder (struct node *head);
 extern void
 preorder (struct node *head);
 
+extern void
+delete_tree (struct node *head);
+
+extern void 
+mirror_tree (struct node *head);
+
+extern void
+free_node (struct node *ptr);
+
 #endif

@@ -62,7 +62,7 @@ insert (struct node **head, void *data)
 }
 
 
-static void
+extern void
 free_node(struct node *ptr)
 {
 	free((int *)(ptr->data));
@@ -195,4 +195,40 @@ postorder (struct node *head)
 	postorder(head->left);
 	postorder(head->right);
 	print_node(head);
+}
+
+
+extern void
+delete_tree (struct node *head)
+{
+	if (head == NULL) {
+		return;
+	}
+	delete_tree(head->left);	
+	delete_tree(head->right);	
+	if (head->left) {
+		printf("\nCleaning up node with data %d\n", *((int *)head->left->data));
+		free_node(head->left);
+		head->left = NULL;
+	}
+	if (head->right) {
+		printf("\nCleaning up node with data %d\n", *((int *)head->right->data));
+		free_node(head->right);
+		head->right = NULL;
+	}
+}
+
+
+extern void
+mirror_tree (struct node *head)
+{
+	struct node *temp = NULL;
+
+	if (head == NULL)
+		return;
+	mirror_tree(head->left);
+	mirror_tree(head->right);
+	temp = head->left;
+	head->left = head->right;
+	head->right = temp;
 }

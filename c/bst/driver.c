@@ -32,6 +32,7 @@ int main (int argc, char *argv[])
 		printf("3. Inorder\n");
 		printf("4. Preorder\n");
 		printf("5. Postorder\n");
+		printf("6. Mirror\n");
 		printf("\nEnter your choice\n");
 		scanf("%d", &choice);
 		switch (choice)
@@ -58,6 +59,9 @@ int main (int argc, char *argv[])
 			case 5:
 				postorder(head);
 				break;
+			case 6:
+				mirror_tree(head);
+				break;
 			default:
 				printf("\nWrong choice. Doing nothing\n");
 		}
@@ -67,6 +71,12 @@ int main (int argc, char *argv[])
 			printf("\nBreaking the driver loop\n");
 			break;
 		}
+	}
+	if (head) {
+		printf("\nCleaning up the binary search tree\n");
+		delete_tree(head);
+		free_node(head);
+		head = NULL;
 	}
 	return 0;
 }
