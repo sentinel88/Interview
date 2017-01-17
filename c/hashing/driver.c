@@ -3,14 +3,16 @@
 #include <string.h>
 #include "list.h"
 
+#define WORD_SIZE 100
 
-static int *
-get_new_node (int *value)
+static char *
+get_new_node (void)
 {
-	int *data = NULL;
+	char *data = NULL;
 
-	data = (int *) malloc (sizeof(int));
-	*data = *value;
+	data = (char *) malloc (sizeof(char) * WORD_SIZE);
+	printf("Enter a word to store in the table ");
+	fgets(data, WORD_SIZE, stdin);
 	return data;
 }
 
@@ -19,63 +21,38 @@ int main (int argc, char *argv[])
 {
 	char ch;
 	int choice;
+	int hash_value = 0;
 	int ret_val = 0;
-	struct node *head = NULL;
-	int *data = NULL;
-	int value = 0;
-	int pos = -1;
+	char *data = NULL;
+	char str[WORD_SIZE];
 
+	hash_table = (struct node **) calloc (sizeof(struct node *), HASH_TABLE_SIZE);
 	while (1) {
 		printf("\nMENU\n\n");
-		printf("1. Insert at the front\n");
-		printf("2. Insert at a position\n");
-		printf("3. Delete from the front\n");
-		printf("4. Delete from a position\n");
-		printf("5. Display\n");
-		printf("6. Reverse the linked list\n");
-		printf("7. Pairwise Swap\n");
+		printf("1. Insert a word\n");
+		printf("2. Search and Delete a word\n");
+		printf("3. Display\n");
 		printf("\nEnter your choice\n");
-		scanf("%d", &choice);
+		scanf(" %d", &choice);
 		switch (choice)
 		{
 			case 1:
-				printf("\nEnter a value\n");
-				scanf(" %d", &value);
-				data = get_new_node(&value);
-				ret_val = insert_node(&head, (void *)data);
+				data = get_new_node();
+				hash_value = data[0] - 97;
+				ret_val = insert_node(&hash_table[hash_value], (void *)data);
 				if (ret_val)
 					printf("\nOperation failed\n");
 				break;
 			case 2:
-				printf("\nEnter the position at which to insert\n");
-				scanf(" %d", &pos);
-				printf("\nEnter a value\n");
-				scanf(" %d", &value);
-				data = get_new_node(&value);
-				ret_val = insert_node_pos(&head, pos, (void *)data);
+				printf("\nEnter a word to search for in the table and delete: ");
+				fgets(str, WORD_SIZE, stdin);
+				hash_value = str[0] - 97;
+				ret_val = delete_node(&hash_table[hash_value], str);
 				if (ret_val)
 					printf("\nOperation failed\n");
 				break;
 			case 3:
-				ret_val = delete_node(&head);
-				if (ret_val)
-					printf("\nOperation failed\n");
-				break;
-			case 4:
-				printf("\nEnter the position at which to delete\n");
-                                scanf(" %d", &pos);
-                                ret_val = delete_node_pos(&head, pos);
-                                if (ret_val)
-                                        printf("\nOperation failed\n");
-				break;
-			case 5:
-				print_list(head);
-				break;
-			case 6:
-				head = reverse(head);	
-				break;
-			case 7:
-				pairwise_swap(&head);
+				print_list(hash_table);
 				break;
 			default:
 				printf("\nWrong choice. Doing nothing\n");

@@ -1,34 +1,23 @@
 #ifndef _LIST_H
 #define _LIST_H
 
+#define HASH_TABLE_SIZE 26
+
 struct node
 {
 	void		*data;
 	struct node	*next;
 };
 
+extern struct node **hash_table;
+
 extern int 
 insert_node (struct node **head, void *data);
 
 extern int 
-insert_node_pos (struct node **head, int pos, void *data);
-
-extern int 
-delete_node (struct node **head);
-
-extern int 
-delete_node_pos (struct node **head, int pos);
+delete_node (struct node **head, char *data);
 
 extern void
-print_list (struct node *head);
-
-extern struct node *
-reverse(struct node *ptr);
-
-extern void
-pairwise_swap (struct node **head);
-
-extern void
-merge_list (struct node *head1, struct node *head2);
+print_list (struct node **head);
 
 #endif
