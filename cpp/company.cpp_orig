@@ -65,32 +65,21 @@ Company::Company(const Company &inComp) :
 	cout <<"This is the copy constructor for company class\n";
 /*
 	Payroll = new Employee*[global_list_size]; */
-	//list<Employee<int> *>::const_iterator iter = (inComp.Payroll).begin();
-	map<int, Employee<int> *>::const_iterator iter = (inComp.Payroll).begin();
+	list<Employee<int> *>::const_iterator iter = (inComp.Payroll).begin();
 	for (i = 0; i < inComp.empCount; i++) {
 		//_create_NewEmployee(&Payroll[i], inComp.Payroll[i], (inComp.Payroll[i])->getType());
 		//if (inComp.Payroll[i]->getType()) {
-		if ((iter->second)->getType()) {
+		if ((*iter)->getType()) {
 			//ptr = new ContractEmployee(inComp.Payroll[i]);
-			ptr = new ContractEmployee<int>(*(static_cast<ContractEmployee<int> *>((*iter).second)));
-			//Payroll.push_back(ptr);
-			auto ret = Payroll.insert({(*iter).first, ptr});
-			if (ret.second)
-				cout << "Insert succeeded" << endl;
-			else
-				cout << "Insert failed" << endl;
+			ptr = new ContractEmployee<int>(*(static_cast<ContractEmployee<int> *>(*iter)));
+			Payroll.push_back(ptr);
 		} else {
 			//ptr = new PermanentEmployee(inComp.Payroll[i]);
-			ptr = new PermanentEmployee<int>(*(static_cast<PermanentEmployee<int> *>((*iter).second)));
-			//Payroll.push_back(ptr);
-			auto ret = Payroll.insert({(*iter).first, ptr});
-			if (ret.second)
-				cout << "Insert succeeded" << endl;
-			else
-				cout << "Insert failed" << endl;
+			ptr = new PermanentEmployee<int>(*(static_cast<PermanentEmployee<int> *>(*iter)));
+			Payroll.push_back(ptr);
 		}
 		//*Payroll[i] = *(inComp.Payroll[i]);
-		//*ptr = *(*iter);
+		*ptr = *(*iter);
 		++iter;
 	}
 }
@@ -101,15 +90,13 @@ Company::~Company()
 	cout << "Deleting the company and all its employee entries\n";
 
 	if (empCount) {
-		for (map<int, Employee<int> *>::iterator iter = Payroll.begin(); 
+		for (list<Employee<int> *>::iterator iter = Payroll.begin(); 
 			iter != Payroll.end(); ++iter) {
 			cout <<"Deleting the employee entry\n";
-			auto it = iter;
 		//for (i = 0; i < empCount; i++) {
                 	//delete Payroll[i];
 			//delete ptr;
-			delete (*iter).second;
-			it = Payroll.erase(it);
+			delete *iter;
         	}
 		//delete [] Payroll;
 		//delete Payroll;
@@ -180,8 +167,7 @@ Company::addEmployee(Employee<int> *inEmp)
 	//Payroll[empCount - 1] = inEmp;
 	_create_NewEmployee(&Payroll[empCount - 1], inEmp, inEmp->getType());
 */
-	//Payroll.push_back(inEmp);
-	Payroll.insert({inEmp->getId(), inEmp});
+	Payroll.push_back(inEmp);
 }
 
 
@@ -207,16 +193,16 @@ Company::deleteEmployee(int inId)
 		}
 	} */
 	//for (auto iter = begin (Payroll); iter != end (Payroll); ++iter) {
-	for (std::map<int, Employee<int> *>::iterator iter = Payroll.begin(); iter != Payroll.end(); ++iter) {
+	for (std::list<Employee<int> *>::iterator iter = Payroll.begin(); iter != Payroll.end(); ++iter) {
 		cout <<"Inside the for loop\n";
-		if (inId == (iter->second)->getId()) {
+		if (inId == (*iter)->getId()) {
 			cout << "Employee with ID: " << inId << "found. Deleting the entry" << endl;
                         empCount--;
                         found = true;
 			//ptr = *iter;
-			delete iter->second;
+			delete *iter;
 			iter = Payroll.erase(iter);
-			break;
+			//break;
 			//delete ptr;
 		}
 	}
@@ -232,9 +218,9 @@ Company::annualhike()
         cout << "Hiking the salaries of the employees in the company\n";
 
         if (empCount) {
-                for (map<int, Employee<int> *>::iterator iter = Payroll.begin();
+                for (list<Employee<int> *>::iterator iter = Payroll.begin();
                         iter != Payroll.end(); ++iter) {
-                        (iter->second)->incSalary();
+                        (*iter)->incSalary();
                 }
         }
         cout <<"Finished appraisal cycle\n";
@@ -245,6 +231,7 @@ Company::annualhike()
 void 
 Company::display() const
 {
+	int i = 0;
 	//Employee **ptr = Payroll;
 
 	cout << "Company: " << getName() << endl;
@@ -261,9 +248,9 @@ Company::display() const
 		cout << "EmpId: " << ptr[i]->getId() << endl << endl << endl;
 	}
 */
-	for (const auto &emp : Payroll) {
-		cout << "EmpName: " << emp.second->getName() << endl;
-                cout << "EmpId: " << emp.second->getId() << endl << endl << endl;
+	for (const Employee<int> *emp : Payroll) {
+		cout << "EmpName: " << emp->getName() << endl;
+                cout << "EmpId: " << emp->getId() << endl << endl << endl;
 	}
 }
 
@@ -308,14 +295,13 @@ operator<<(ostream& output, const Company& inComp)
 			output << static_cast<PermanentEmployee*>(ptr[i]);
 		}
         }*/
-	//for (const Employee<int> *emp : inComp.Payroll) {
-	for (const auto &emp : inComp.Payroll) {
-		if (emp.second->getType()) {
+	for (const Employee<int> *emp : inComp.Payroll) {
+		if (emp->getType()) {
                         cout << "This is a contract employee being displayed\n";
-                        output << static_cast<const ContractEmployee<int> *>(emp.second);
+                        output << static_cast<const ContractEmployee<int> *>(emp);
                 } else {
                         cout << "This is a permanent employee being displayed\n";
-                        output << static_cast<const PermanentEmployee<int> *>(emp.second);
+                        output << static_cast<const PermanentEmployee<int> *>(emp);
                 }
         }
 	return output;

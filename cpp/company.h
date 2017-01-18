@@ -3,6 +3,7 @@
 #include "employee.h"
 #include <iostream>
 #include <list>
+#include <map>
 #define _INIT_SIZE 3
 
 class Company
@@ -31,7 +32,8 @@ class Company
 		std::string Location;
 		static int empCount;
 		//Employee **Payroll;
-		std::list<Employee<int> *> Payroll;
+		//std::list<Employee<int> *> Payroll;
+		std::map<int, Employee<int> *> Payroll;
 		//void _create_NewEmployee(Employee **ptr, const Employee& inEmp, int inType);
 		void _create_NewEmployee(Employee<int> **ptr, Employee<int> *inEmp, int inType);
 };
