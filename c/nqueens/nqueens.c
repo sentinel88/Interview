@@ -50,7 +50,9 @@ nqueens (int **board, int num, int level, int **positions)
 		return true;
 	}
 	for (i = 0; i < num; i++) {
+		//printf("Level %d, Cell %d\n", level, i);
 		if (!checkpos(board, positions, level, i, num)) {
+			//printf("Checkpos: No conflict for Level %d, Cell %d\n", level, i);
 			positions[0][level] = 1;
 			positions[1][i] = 1;
 			board[level][i] = 1;
@@ -58,6 +60,8 @@ nqueens (int **board, int num, int level, int **positions)
 			if (solution)
 				break;
 			board[level][i] = 0;
+			positions[0][level] = 0;
+			positions[1][i] = 0;
 		}
 	}
 	if (!solution)

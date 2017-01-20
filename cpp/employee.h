@@ -89,6 +89,30 @@ class ContractEmployee : public Employee<T>
                 std::string Agency;
 };
 
+
+template <typename T>
+class ConsultantEmployee;
+
+template <typename T>
+std::ostream& operator<<(std::ostream& output, const ConsultantEmployee<T> *inEmployee);
+
+
+template <typename T>
+class ConsultantEmployee : virtual public PermanentEmployee<T>, virtual public ContractEmployee<T>
+{
+        public:
+                ConsultantEmployee();
+                ConsultantEmployee(const ConsultantEmployee<T> &inEmp);
+                ConsultantEmployee(const std::string& inName, int Id, const T& inSalary, const std::string& inAgency);
+                virtual ~ConsultantEmployee();
+                const std::string& getAgency() const;
+                void setAgency(const std::string& inAgency);
+                void incSalary();
+                friend std::ostream& operator<<<T>(std::ostream& output, const ConsultantEmployee *inEmployee);
+        private:
+                std::string Agency;
+};
+
 template <typename T>
 Employee<T>::Employee()
 {
