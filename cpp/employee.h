@@ -56,7 +56,7 @@ class PermanentEmployee : public Employee<T>
 		PermanentEmployee();
 		PermanentEmployee(const std::string& inName, int Id, const T& inSalary, const std::string& inDept);
 		PermanentEmployee(const PermanentEmployee<T>& inEmp);
-		virtual ~PermanentEmployee();
+		virtual ~PermanentEmployee();    // Do not have to make this destructor virtual. Virtual ness inherited from Base class
 		const std::string& getDept() const;
 		void setDept(const std::string& inDept);
 		void incSalary();
@@ -103,14 +103,9 @@ class ConsultantEmployee : virtual public PermanentEmployee<T>, virtual public C
         public:
                 ConsultantEmployee();
                 ConsultantEmployee(const ConsultantEmployee<T> &inEmp);
-                ConsultantEmployee(const std::string& inName, int Id, const T& inSalary, const std::string& inAgency);
+                ConsultantEmployee(const std::string& inName, int Id, const T& inSalary, const std::string& inAgency, const std::string& inDept);
                 virtual ~ConsultantEmployee();
-                const std::string& getAgency() const;
-                void setAgency(const std::string& inAgency);
-                void incSalary();
                 friend std::ostream& operator<<<T>(std::ostream& output, const ConsultantEmployee *inEmployee);
-        private:
-                std::string Agency;
 };
 
 template <typename T>
@@ -392,6 +387,31 @@ operator<<(ostream& output, const ContractEmployee<T> *inEmployee)
         output << static_cast<const Employee<T>*>(inEmployee);
         output << "Agency: " <<inEmployee->Agency <<endl;
         return output;
+}
+
+
+template <typename T>
+ConsultantEmployee<T>::ConsultantEmployee() :
+        Dept("Unknown"), Agency("Unknown")
+{
+        cout <<"This is the default constructor for the Consultant Employee\n";
+}
+
+
+template <typename T>
+ConsultantEmployee<T>::ConsultantEmployee(const string& inName, int Id,
+                                        const T& inSalary, const string& inAgency, const string& inDept) :
+                        Employee<T>(inName, Id, inSalary), Dept(inDept), Agency(inAgency)
+{
+        cout <<"This is the parameterized constructor of the consultant employee class\n";
+}
+
+
+template <typename T>
+ConsultantEmployee<T>::ConsultantEmployee(const ConsultantEmployee& inEmp) :
+                        Employee<T>(inEmp), Dept(inEmp.Dept), Agency(inEmp.Agency)
+{
+        cout <<"This is the copy constructor for consultant employee class\n";
 }
 
 #endif

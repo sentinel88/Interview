@@ -9,10 +9,12 @@ static char *
 get_new_node (void)
 {
 	char *data = NULL;
+	int size = WORD_SIZE;
 
 	data = (char *) malloc (sizeof(char) * WORD_SIZE);
-	printf("Enter a word to store in the table ");
-	fgets(data, WORD_SIZE, stdin);
+	printf("Enter a word to store in the table");
+	fgets(data, size, stdin);
+	printf("\nData: %s", data);
 	return data;
 }
 
@@ -25,6 +27,7 @@ int main (int argc, char *argv[])
 	int ret_val = 0;
 	char *data = NULL;
 	char str[WORD_SIZE];
+	int size = WORD_SIZE;
 
 	hash_table = (struct node **) calloc (sizeof(struct node *), HASH_TABLE_SIZE);
 	while (1) {
@@ -45,7 +48,7 @@ int main (int argc, char *argv[])
 				break;
 			case 2:
 				printf("\nEnter a word to search for in the table and delete: ");
-				fgets(str, WORD_SIZE, stdin);
+				fgets(str, size, stdin);
 				hash_value = str[0] - 97;
 				ret_val = delete_node(&hash_table[hash_value], str);
 				if (ret_val)

@@ -1,5 +1,5 @@
 CC=gcc
-CFLAGS=-std=c99 -I.
+CFLAGS=-std=c99 -I. -g
 DEPS=list.h
 OBJ=driver.o list.o
 
