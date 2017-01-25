@@ -32,4 +32,7 @@ mirror_tree (struct node *head);
 extern void
 free_node (struct node *ptr);
 
+extern void
+find_pair_sum (struct node *head);
+
 #endif
