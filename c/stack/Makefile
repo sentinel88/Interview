@@ -13,7 +13,7 @@ all: $(EXE) $(LIB)
 $(EXE): $(OBJ)
 	$(CC) -o $@ $^ $(CFLAGS)
 
-$(LIB): $(OBJ)
+$(LIB): stack.o
 	$(CC) -shared -o $@ $^ $(CFLAGS)
 
 .PHONY: clean
