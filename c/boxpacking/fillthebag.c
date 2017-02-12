@@ -6,7 +6,52 @@
 #include <stdbool.h>
 #define ITEM_COUNT 5
 
+
+static float
+max (float a, float b)
+{
+	return ( (a > b) ? a : b);
+}
+
+
 /* We calculate something called as the fit factor that is equal to max (wratio, vratio). wratio is (weight/volume) and vratio is (volume/weight). Boxes can be of any shape and size. In order to consider this we need two ratios to cover boxes which are heavier but less volume or vice versa. We then sort the boxes according to fit factor and fill them in the bag until they do not exceed the capacity of the bag (weight, volume). */
+
+
+static void
+sort_boxes (int *weight, int *volume)
+{
+	float fit_factor[ITEM_COUNT];
+	int i, j;
+	float temp;
+	int tempval;
+	bool swap = false;
+
+	for (i =0; i < ITEM_COUNT; i++) 
+		fit_factor[i] = max( (weight[i]/volume[i]), (volume[i], weight[i]) );
+
+	/* Sort the weight and volume of the boxes according to their fit factor. Using bubble sort */
+	for (i = 0; i < (ITEM_COUNT - 1); i++) {
+		swap = false;
+		for (j = 0; j < (ITEM_COUNT - i - 1); i++) {
+			if (fit_factor[j] > fit_factor[j + 1]) {
+				temp = fit_factor[j];
+				fit_factor[j] = fit_factor[j + 1];
+				fit_factor[j + 1] = temp;
+				swap = true;
+
+				tempval = weight[j];
+				weight[j] = weight[j + 1];
+				weight[j + 1] = tempval;
+	
+				tempval = volume[j];
+				volume[j] = volume[j + 1];
+				volume[j + 1] = temp;
+			}
+		}
+		if (!swap)
+			break;  /* Bubble sort: No swap happened during the previous iteration hence we break as array is sorted */
+	}	
+}
 
 static void
 fillthebag (int *weight, int *volume, int *bag_capacity)
@@ -14,9 +59,11 @@ fillthebag (int *weight, int *volume, int *bag_capacity)
 	bool select[ITEM_COUNT];
 	int i, j;
 	int item_count = ITEM_COUNT;	
+	int fill_count = 0;
 	bool full = false;
 
 	memset(select, 0, ITEM_COUNT);	
+	sort_boxes(weight, volume);
 	while (item_count) {
 		fill_count = 0;
 		full = false;
