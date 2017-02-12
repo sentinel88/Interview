@@ -30,16 +30,16 @@ sort_boxes (int *weight, int *volume)
 	int tempval;
 	bool swap = false;
 
-	printf("\nCollection (weight, volume)\n\n");
-	for (i =0; i < ITEM_COUNT; i++) {
+	printf("\nCollection (weight, size, volume, fit factor)\n\n");
+	for (i = 0; i < ITEM_COUNT; i++) {
 		fit_factor[i] = max( (weight[i]/volume[i]), (volume[i]/weight[i]) );
-                printf("Box %d: %d, %d, %f\n", i + 1, weight[i], volume[i], fit_factor[i]);
+                printf("Box %d: %d, %d, %d, %f\n", i + 1, weight[i], size[i], volume[i], fit_factor[i]);
         }
 
 	/* Sort the weight and volume of the boxes according to their fit factor. Using bubble sort */
 	for (i = 0; i < (ITEM_COUNT - 1); i++) {
 		swap = false;
-		for (j = 0; j < (ITEM_COUNT - i - 1); i++) {
+		for (j = 0; j < (ITEM_COUNT - i - 1); j++) {
 			if (fit_factor[j] > fit_factor[j + 1]) {
 				temp = fit_factor[j];
 				fit_factor[j] = fit_factor[j + 1];
@@ -52,19 +52,23 @@ sort_boxes (int *weight, int *volume)
 	
 				tempval = volume[j];
 				volume[j] = volume[j + 1];
-				volume[j + 1] = temp;
+				volume[j + 1] = tempval;
 			}
 		}
 		if (!swap)
 			break;  /* Bubble sort: No swap happened during the previous iteration hence we break as array is sorted */
 	}	
+	printf("\n\nAfter sorting the collection of boxes\n");
+	printf("\nCollection (weight, size, volume, fit factor)\n\n");
+        for (i = 0; i < ITEM_COUNT; i++)
+                printf("Box %d: %d, %d, %d, %f\n", i + 1, weight[i], size[i], volume[i], fit_factor[i]);
 }
 
 
 /* Fill the bag according to the sorted boxes (by weight and volume) */
 
 static void
-fillthebag (int *weight, int *volume, int *bag_capacity)    /* bag_capacity[0] is weight of the bag and bag_capacity[1] is volume */
+fillthebag (int *weight, int *size, int *volume, int *bag_capacity)    /* bag_capacity[0] is weight of the bag and bag_capacity[1] is volume */
 {
 	bool select[ITEM_COUNT];
 	int i;
@@ -75,8 +79,10 @@ fillthebag (int *weight, int *volume, int *bag_capacity)    /* bag_capacity[0] i
 	int item_count = ITEM_COUNT;	
 	int cycles = 0;
 
-	memset(select, 0, ITEM_COUNT);	
-	sort_boxes(weight, volume);
+	for (i = 0; i < ITEM_COUNT; i++) {
+		select[i] = false;
+	}
+	sort_boxes(weight, size, volume);
 	while (item_count) {
 		full = false;
 		fill_count = 0;
@@ -86,8 +92,10 @@ fillthebag (int *weight, int *volume, int *bag_capacity)    /* bag_capacity[0] i
 		i = 0;
 		printf("\nLoading Cycle %d\n", cycles + 1);
 		while (i < ITEM_COUNT) {
-			if (select[i])
+			if (select[i]) {
+				i++;
 				continue;
+			}
 			if ( ((fill_weight + weight[i]) <= bag_capacity[0]) &&
 				((fill_volume + volume[i]) <= bag_capacity[1]) ) {
 				printf("Box with weight %d and volume %d selected\n", weight[i], volume[i]);
@@ -114,7 +122,7 @@ main (int argc, char *argv[])
 	int bag_capacity[2];
 	int i;
 
-	printf("\nEnter the capacity of the bag\n");
+	printf("\nEnter the capacity of the bag (weight and volume)\n");
 	scanf(" %d %d", &bag_capacity[0], &bag_capacity[1]);
 	
 	for (i = 0; i < ITEM_COUNT; i++) {
@@ -122,11 +130,13 @@ main (int argc, char *argv[])
 		scanf(" %d %d", &weight[i], &size[i]);
 		volume[i] = size[i] * size[i] * size[i];
 	}	
+/*
 	printf("\nCollection (weight, volume)\n\n");
 	for (i = 0; i < ITEM_COUNT; i++) {
 		printf("Box %d: %d, %d\n", i + 1, weight[i], volume[i]);
 	}	
-	fillthebag(weight, volume, bag_capacity);
+*/
+	fillthebag(weight, size, volume, bag_capacity);
 
 	return 0;
 }
