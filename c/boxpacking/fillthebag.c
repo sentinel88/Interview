@@ -50,6 +50,10 @@ sort_boxes (int *weight, int *size, int *volume)
 				weight[j] = weight[j + 1];
 				weight[j + 1] = tempval;
 	
+				tempval = size[j];
+				size[j] = size[j + 1];
+				size[j + 1] = tempval;
+
 				tempval = volume[j];
 				volume[j] = volume[j + 1];
 				volume[j + 1] = tempval;
