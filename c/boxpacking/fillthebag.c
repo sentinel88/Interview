@@ -106,11 +106,13 @@ fillthebag (int *weight, int *size, int *volume, int *bag_capacity)    /* bag_ca
 			}
 			i++;
 		}
+		printf("Remaining capacity of the bag: Weight: %d, Volume: %d\n", (bag_capacity[0] - fill_weight), 
+									(bag_capacity[1] - fill_volume) );
 		printf("\n\n");
 		item_count -= fill_count;
 		cycles++;
 	}
-	printf("\n\nTotal number of loading cycles: %d\n", cycles);
+	printf("\nTotal number of loading cycles: %d\n", cycles);
 }
 
 int 
@@ -129,6 +131,10 @@ main (int argc, char *argv[])
 		printf("Enter the weight and size of box %d\n", i + 1);
 		scanf(" %d %d", &weight[i], &size[i]);
 		volume[i] = size[i] * size[i] * size[i];
+		if ( (weight[i] > bag_capacity[0]) || (volume[i] > bag_capacity[1]) ) {
+			printf("\nIncorrect dimensions of the box to fit inside the bag. Please re enter\n");
+			i--;
+		}
 	}	
 /*
 	printf("\nCollection (weight, volume)\n\n");

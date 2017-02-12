@@ -1,0 +1,35 @@
+Collection (weight, size, volume, fit factor)
+
+Box 1: 90, 10, 1000, 11.000000
+Box 2: 20, 3, 27, 1.000000
+Box 3: 40, 12, 1728, 43.000000
+Box 4: 10, 8, 512, 51.000000
+Box 5: 30, 5, 125, 4.000000
+
+
+After sorting the collection of boxes
+
+Collection (weight, size, volume, fit factor)
+
+Box 1: 20, 10, 27, 1.000000
+Box 2: 30, 3, 125, 4.000000
+Box 3: 90, 12, 1000, 11.000000
+Box 4: 40, 8, 1728, 43.000000
+Box 5: 10, 5, 512, 51.000000
+
+Loading Cycle 1
+Box with weight 20 and volume 27 selected
+Box with weight 30 and volume 125 selected
+Box with weight 40 and volume 1728 selected
+Remaining capacity of the bag: Weight: 10, Volume: 120
+
+
+
+Loading Cycle 2
+Box with weight 90 and volume 1000 selected
+Box with weight 10 and volume 512 selected
+Remaining capacity of the bag: Weight: 0, Volume: 488
+
+
+
+Total number of loading cycles: 2
