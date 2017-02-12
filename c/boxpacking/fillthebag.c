@@ -22,7 +22,7 @@ max (float a, float b)
 
 
 static void
-sort_boxes (int *weight, int *volume)
+sort_boxes (int *weight, int *size, int *volume)
 {
 	float fit_factor[ITEM_COUNT];
 	int i, j;
