@@ -1,6 +1,6 @@
 /* fillthebag.c */
 
-/* Fill the bag with boxes of different weights and sizes (calculate volume). Assumptions: The bag is assumed to have an upper limit in terms of weight and volume. Boxes are cubes and are solid. We will try to maximize the number of boxes we can pack in the bag in every loading cycle and minimize the total number of loading cycles. For simplicity we consider the weight and size of the boxes to be integer and of some measurable unit. Also, that the available boxes can fit in the bag and are not of some incompatible size */
+/* Fill the bag with boxes of different weights and sizes (calculate volume). ####Assumptions####: The bag is assumed to have an upper limit in terms of weight and volume. Boxes are cubes and are solid. We will try to maximize the number of boxes we can pack in the bag in every loading cycle and minimize the total number of loading cycles. For simplicity we consider the weight and size of the boxes to be integer and of some measurable unit. Also, that the available boxes can fit in the bag and are not of some incompatible size */
 
 /* Author: Nishanth Nagendra */
 
