@@ -69,7 +69,12 @@ int main()
 					(static_cast<PermanentEmployee<int>*>(eObj))->setDept(empString);
 				}
                                 //cObj.addEmployee(eObj);
-				cObj = cObj + eObj;
+				try {
+					cObj = cObj + eObj;
+				} catch (const myException& e) {
+					cout << e.what() << endl;
+					return 1;
+				}
                                 break;
                         case 2:
 				cout << "Enter the id of the employee who should be removed\n";

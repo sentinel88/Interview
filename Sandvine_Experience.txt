@@ -1,0 +1,32 @@
+Sandvine Interview Experience: 2 days , 7 rounds.
+      Day 1: 
+            Round 1: Senior Director:  Discussion about his project, my project, few conceptual questions [What is TCP / UDP,                                          (1 hr)              differences ?, Why UDP?  How will you provide reliability if you use UDP? Some question 
+                                                         on multi-threading and sockets which I can't remember]
+
+            Round 2: Architect:  In-place reversal of array of integers, Merge 2 sorted linked lists into one sorted linked list and 
+                                 (1 hr)   remove duplicates, http://www.geeksforgeeks.org/trapping-rain-water/, question on multithreading, 
+                                          why MPI, benefits overs pthread?, for a distributed system will I use MPI ? [I mentioned I will use                                                  RPC], Some general discussion on functional programming[haskell] and difference with C. I 
+                                             mentioned I had learnt haskell during masters but did not remember anything :)].
+
+            Round 3: Manager: All the system calls for socket programming, benefits of poll over select, deadlock, race conditions,
+                                (1.5 hrs) detection and resolution of deadlock of a running system, implement strcpy, duplicate argv in 
+                                          another array of strings, 2 code snippets with faults and there solution, given a word: use its 
+                                          characters and form all possible words of length > 1, discussion about all my projects.
+      Day 2:
+            Round 4: Tech Lead: Program to convert integer to its string form [Ex: 123 to "123", Discussion on segmentation faults,                                  (1 hr)       memory layout of a program, gdb, code snippets with faults and solutions relating to it, small 
+                                         design question (Data structure and algo. for implementing 2 simple system calls]
+
+            Round 5: Senior Director: General discussion about my work and academic experience, Their culture at sandvine and 
+                           (45 min)           about consistent work load, 1 simple aptitude problem, puzzle [prove 1 + 1 = 1].
+
+            Round 6: Director: Just a personal discussion. Outside of resume.  Why back to India. Why sandvine. Which                                                              companies am I trying. All sorts of nonsense. (40min)
+
+            Round 7: Head of Engineering (Senior Most) : Most difficult round for me (1.5 hrs): Best experience by far
+                                         Thoroughly grilled on my masters project. My prev work experience and masters project 
+                                          have usually tackled scalability and performance problems. This is very important for networking 
+                                         and telecom products so he asked everything related to that. How to do it ? Why ? Gave a 
+                                          situation and how you will tackle it ? Why not mavenir? Why back to India ? Why sandvine ?
+                                         What work do you like ? about myself ? What work excites you ? 2 difficult puzzles [ game show 
+                                          with 3 doors, 2 having a donkey and one car. Improve your chances of getting the car above 1/3.                                                   Another puzzle on how we can perform arithmetic on infinite precision numbers. Convert 
+                                         0.9999999999... to 1. Why does it never reach 1 and some other things. I did not solve both the                                                     puzzles :)  only partial answers. My brain was exhausted with so many rounds already]
+
