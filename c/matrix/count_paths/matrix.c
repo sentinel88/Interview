@@ -82,7 +82,7 @@ displayMatrix (const MATRIX *mat)
 int
 countPaths (MATRIX *mat)
 {
-    int **ptr = get2DArray(mat->rows, mat->cols);
+    int **ptr = create2DArray(mat->rows, mat->cols);
     int i, j;
     int rows = mat->rows;
     int cols = mat->cols;
@@ -100,6 +100,15 @@ countPaths (MATRIX *mat)
     {
         ptr[i][0] = 1;
     }
+    for (i = 1; i < rows; i++)
+    {
+       for (j = 1; j < cols; j++)
+       {
+          ptr[i][j] = ptr[i][j - 1] + ptr[i - 1][j];
+       }
+    }
+    printf("\nMatrix computed for counting paths\n\n");
+    displayMatrix(ptr);
     mat->count_paths = ptr[rows - 1][cols - 1];
 }
 
