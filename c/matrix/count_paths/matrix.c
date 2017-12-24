@@ -37,9 +37,10 @@ fillMatrix (const MATRIX *mat)
     printf("\nEnter the elements of the matrix\n");
 
     int **ptr = mat->ptr;
-    for (int i = 0; i < mat->rows; i++)
+    int i, j;
+    for (i = 0; i < mat->rows; i++)
     {
-        for (int j = 0; j < mat->cols; j++)
+        for (j = 0; j < mat->cols; j++)
         {
             scanf("%d", &(ptr[i][j]));
         }
@@ -51,12 +52,13 @@ int**
 create2DArray (int dim1, int dim2)
 {
     int **ptr = (int **)malloc(sizeof(MATRIX *) * dim1);
+    int i;
     if (!ptr)
     {
         printf("\nUnable to allocate memory for 2d array\n");
         return NULL;
     }
-    for (int i = 0; i < dim1; i++)
+    for (i = 0; i < dim1; i++)
     {
         ptr[i] = (int *)calloc(dim2, sizeof(int));
     }
@@ -68,9 +70,10 @@ void
 displayMatrix (const MATRIX *mat)
 {
     int **ptr = mat->ptr;
-    for (int i = 0; i < mat->rows; i++)
+    int i, j;
+    for (i = 0; i < mat->rows; i++)
     {
-        for (int j = 0; j < mat->cols; j++)
+        for (j = 0; j < mat->cols; j++)
         {
             printf("%d ", ptr[i][j]);
         }
@@ -89,12 +92,12 @@ countPaths (MATRIX *mat)
 
     if (!ptr)
     {
-        prntf("\nDue to memory allocation failure, count of paths is 0\n");
+        printf("\nDue to memory allocation failure, count of paths is 0\n");
         exit(0);
     }
     for (i = 0; i < cols; i++)
     {
-        ptr[0][j] = 1;
+        ptr[0][i] = 1;
     }
     for (i = 0; i < rows; i++)
     {
@@ -108,8 +111,13 @@ countPaths (MATRIX *mat)
        }
     }
     printf("\nMatrix computed for counting paths\n\n");
-    displayMatrix(ptr);
-    mat->count_paths = ptr[rows - 1][cols - 1];
+    MATRIX mat1;
+    mat1.rows = rows;
+    mat1.cols = cols;
+    mat1.count_paths = 0;
+    mat1.ptr = ptr;
+    displayMatrix(&mat1);
+    mat1.count_paths = ptr[rows - 1][cols - 1];
 }
 
 

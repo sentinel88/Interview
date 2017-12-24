@@ -24,7 +24,7 @@ displayMatrix (const MATRIX *mat);
 void
 freeMatrix (MATRIX *mat);
 
-static int 
+int 
 countPaths (MATRIX *mat);
 
 #endif
