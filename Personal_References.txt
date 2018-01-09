@@ -5,7 +5,7 @@ Deepak
 Vivek
 	Cisco, ......
 RK
-	Qualcomm, Citrix(Maybe)
+	Qualcomm, Citrix(Maybe), Arista Networks(Maybe)
 Rajesh
 	Cisco, Oracle, Juniper
 Himdeep
@@ -18,6 +18,8 @@ Sudhindra
 	Nokia(Maybe)
 Arjun Sachdeva
 	Nokia(Maybe)
+Vidhya(HR@Sandvine)
+	Resume will be forwarded to other companies. Need to send before next weekend.
 -------------------------------------------------------------------------
 
 Orrca 125 Balcony Boys
