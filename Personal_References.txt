@@ -7,7 +7,7 @@ Vivek
 RK
 	Qualcomm, Citrix(Maybe), Arista Networks(Maybe)
 Rajesh
-	Cisco, Oracle, Juniper
+	Cisco, Oracle, Juniper, NetApp (Bindhiya), Arista, Infinera, etc...
 Himdeep
 	Cisco, Oracle, Juniper
 Abhay
