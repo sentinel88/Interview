@@ -2,6 +2,23 @@ Startups to apply for:
 	Avi Networks
 	BlueJeans Networks
 	BloomReach
+	A10 Networks
+
+
+NetApp:   https://jobs.netapp.com/job/Bangalore%2C-India-%28BANGALORE%29-Member-Technical-Staff/448934700/
+	  https://jobs.netapp.com/job/Bangalore%2C-India-%28BANGALORE%29-Sw-Engineer-%28C%2C-system-programming%29/452481400/
 
 
 https://storageservers.wordpress.com/2015/12/22/companies-list-which-provide-data-storage-solutions/
+
+
+
+
+http://www.tomsitpro.com/articles/paas-providers,1-1517.html
+https://stackify.com/top-iaas-providers/
+https://en.wikipedia.org/wiki/Infrastructure_as_a_service
+http://searchcloudcomputing.techtarget.com/definition/Infrastructure-as-a-Service-IaaS
+https://en.wikipedia.org/wiki/Platform_as_a_service
+http://searchcloudcomputing.techtarget.com/definition/Platform-as-a-Service-PaaS
+https://en.wikipedia.org/wiki/Software_as_a_service
+
