@@ -4,13 +4,12 @@
 #include <iostream>
 #include <vector>
 
-using namespace std;
 
 template <typename T>
 class Stack;
 
 template <typename T>
-ostream& operator<<(ostream &output, Stack<T> &inS);
+std::ostream& operator<<(std::ostream &output, const Stack<T> &inS);
 
 template <typename T>
 class Stack
@@ -25,11 +24,11 @@ class Stack
 		int Peek(); const
 		int getTop(); const
 		int getSize(); const
-		friend ostream& operator<<<T>(ostream& output, const Stack &inS);
+		friend std::ostream& operator<<<T>(std::ostream& output, const Stack &inS);
 	private:
 		int top;
 		int size;
-		vector<T> elems;			
+		std::vector<T> elems;			
 		const int DEFAULT_SIZE = 10;
 };
 
@@ -39,7 +38,7 @@ Stack<T>::Stack():top(-1),
                 size(Stack::DEFAULT_SIZE),
                 elems(Stack::DEFAULT_SIZE)
 {
-	cout <<"Inside default constructor" <<endl;
+	std::cout <<"Inside default constructor" <<std::endl;
 }
 
 
@@ -48,28 +47,23 @@ Stack<T>::Stack(int inSize):top(-1),
                         size(inSize),
                         elems(inSize)
 {
-	cout <<"Inside parameterized constructor" <<endl;
+	std::cout <<"Inside parameterized constructor" <<std::endl;
 }
 
 
 template <typename T>
-Stack<T>::Stack(const Stack<T> &inS):top(ins.getTop()),
-				     size(ins.getSize()),
-				     elems(ins.getElems())
+Stack<T>::Stack(const Stack<T> &inS):top(inS.getTop()),
+				     size(inS.getSize()),
+				     elems(inS.getElems())
 {
-	cout <<"Inside copy constructor" <<endl;
+	std::cout <<"Inside copy constructor" <<std::endl;
 }
 
 template <typename T>
 Stack<T>::~Stack()
 {
-	cout <<"Inside destructor" <<endl;
+	std::cout <<"Inside destructor" <<std::endl;
 }
-
-		int Pop();
-		int Peek(); const
-		int getTop(); const
-		int getSize(); const
 
 template <typename T>
 void
@@ -85,7 +79,7 @@ Stack<T>::Pop()
 {
 	if (top == -1)
 	{
-		cout <<"Empty stack" <<endl;
+		std::cout <<"Empty stack" <<std::endl;
 		return -1;
 	}
 	int temp = elems[top];
@@ -119,8 +113,8 @@ Stack<T>::getSize() const
 }
 
 template <typename T>
-ostream& 
-operator<<(ostream& output, const Stack<T>& inS)
+std::ostream& 
+operator<<(std::ostream& output, const Stack<T>& inS)
 {
 	for (i = elems.size() - 1; i >= 0; i--)
 	{
