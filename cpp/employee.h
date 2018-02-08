@@ -265,7 +265,8 @@ PermanentEmployee<T>::PermanentEmployee() :
 template <typename T>
 PermanentEmployee<T>::PermanentEmployee(const string& inName, int Id,
                                         const T& inSalary, const string& inDept) :
-                        Employee<T>(inName, Id, inSalary), Dept(inDept)
+                        //Employee<T>(inName, Id, inSalary), Dept(inDept)
+                        Dept(inDept)
 {
         cout <<"This is the parameterized constructor of the permanent employee class\n";
 }
@@ -329,7 +330,8 @@ ContractEmployee<T>::ContractEmployee() :
 template <typename T>
 ContractEmployee<T>::ContractEmployee(const string& inName, int Id,
                                         const T& inSalary, const string& inAgency) :
-                        Employee<T>(inName, Id, inSalary), Agency(inAgency)
+                        //Employee<T>(inName, Id, inSalary), Agency(inAgency)
+                        Agency(inAgency)
 {
         cout <<"This is the parameterized constructor of the contract employee class\n";
 }
@@ -401,7 +403,8 @@ ConsultantEmployee<T>::ConsultantEmployee() :
 template <typename T>
 ConsultantEmployee<T>::ConsultantEmployee(const string& inName, int Id,
                                         const T& inSalary, const string& inAgency, const string& inDept) :
-                        Employee<T>(inName, Id, inSalary), Dept(inDept), Agency(inAgency)
+                        //Employee<T>(inName, Id, inSalary), Dept(inDept), Agency(inAgency)
+                        Agency(inAgency)
 {
         cout <<"This is the parameterized constructor of the consultant employee class\n";
 }
