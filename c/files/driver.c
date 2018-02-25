@@ -24,7 +24,7 @@ main (int argc, char *argv[])
 		exit(0);
 	}
 	buf[retval] = '\0';
-	printf("\nBuffer: %s", buf);
+	printf("\nBuffer: %s\n\nDONE", buf);
 	val = lseek(fd, 0, SEEK_SET);
 	if (val == (off_t) -1) {
 		printf("\nError in setting the position inside the file\n");

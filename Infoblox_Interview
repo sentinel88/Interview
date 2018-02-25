@@ -1,0 +1,19 @@
+About Infoblox, technology, product portfolio
+
+TUM Autotune project experience
+Mavenir project experience
+
+C++ design patterns   [https://sourcemaking.com/design_patterns/singleton]
+
+SMPP protocol
+
+
+http://thecodegallery.com/CPP/Polymorphism.php
+https://stackoverflow.com/questions/2128838/compile-time-polymorphism-and-runtime-polymorphism
+
+Compile time polymorphism:   Function overloading, Operator overloading, Templates (Generic Programming)
+Run time polymorphism: 	Virtual functions
+
+https://stackoverflow.com/questions/1127396/struct-constructor-in-c
+https://stackoverflow.com/questions/515763/how-can-derived-class-inherit-a-static-function-from-base-class
+https://blog.feabhas.com/2014/07/templates-and-polymorphism/

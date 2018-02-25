@@ -1,0 +1,109 @@
+Oracle Interview Questions:
+
+Round1
+	Discussion on the work done at Sandinve (Ud project) and INVASIC project at TUM. Understanding of the high level architecture, design etc. General technical discussion. why do we need LDAP here ? Motivation behind using directory based database.
+Round2
+	Duplicate a linkedlist having next & random pointers. LCA in binary tree. Missing integer in a file of integers from 0 - 4billion except one integer missing. Print output in a certain order using 2 threads. Question on whether virtual memory is needed if we have enough memory to accommodate all processes. Round robin scheduling drawbacks. Data consistency across 2 nodes when failover happens and a particular block is modified on one node but not on the other. When other node went down and starts up then it should first sync up with the other node and get all the metadata.
+Round3
+	Memory management scheme. Alloc and Deallocate Routine/Interface. Design and implement. Implement defragmentation. Give a list of offset ranges. How to store those offset ranges and then merge them as they arrive. Requires the usage of a balanced binary search tree and then we will need to check the overlap of these intervals and keep only 1 intervals after merging them with all. Once merged there should only be one interval left and others should be removed. Cases for alloc and dealloc should be considered.
+Round4
+	One problem on finding out the difference between 2 snapshots (2 sets of realm structures) Find the add and delete sets of realm. To 
+	re create the same state on the other file system or replica node.
+
+
+
+Database:   Data consistency in the situation of concurrency
+http://web.mit.edu/6.005/www/fa14/classes/17-concurrency/
+http://www.methodsandtools.com/archive/archive.php?id=83
+http://www.dbta.com/Columns/DBA-Corner/What-Can-You-Do-to-Avoid-Database-Locking-Problems-100926.aspx
+https://docs.oracle.com/cd/B19306_01/server.102/b14220/consist.htm
+
+
+********** [Important] https://www.fastcompany.com/3060011/how-you-should-answer-the-10-most-common-interview-questio **********
+
+
+Balanced binary search trees: AVL Tree, Red Black tree, Balanced Binary Tree [Context of AirMessenger project], Trie, function pointers, pointer arithmetic
+
+Revise memory management techniques. FAQs or questions. Linux FAQs
+Memory alignment
+
+Go through the bugs solved at sandvine
+
+Page replacement algorithms
+File handling functions - readline to read a file line by line [https://stackoverflow.com/questions/3501338/c-read-file-line-by-line]	
+String algorithms
+Linked List questions
+randomized algorithms
+Bit manipulation algorithms
+Searching, Sorting algorithms,
+Other algorithms, few Dynamic programming problems
+Everyday code 1 problem
+matrix problems
+Stack questions:
+	histogram problem
+	stock purchase problem
+Queue questions:
+	Petrol pump problem
+enum, union
+atoi, heapsort, reversing a number
+BFS, DFS, Permutation/Combination problem
+
+Design methodologies from Sandvine work experience
+
+Command line arguments, variable arguments list
+
+Project experiences: Ignore aricent project, specifically the IMS architecture etc. Try to just glance through it thats all.
+Importance to Master Thesis Project
+
+OS: I/O Subsystem[ https://unix.stackexchange.com/questions/199265/relationship-between-io-scheduler-and-cpu-process-scheduler], Revise fork() and others through notes and text files
+OS Questions: https://www.careercup.com/page?pid=linux-kernel-interview-questions
+
+
+Pending items:
+
+https://www.geeksforgeeks.org/function-pointer-in-c/
+https://www.juniper.net/documentation/en_US/junos/topics/reference/general/diameter-avps.html
+https://www.geeksforgeeks.org/multidimensional-pointer-arithmetic-in-cc/
+https://www.geeksforgeeks.org/pointers-in-c-and-c-set-1-introduction-arithmetic-and-array/
+https://sites.google.com/site/amitsciscozone/home/lte-notes/pcc-architecture
+http://www.lteandbeyond.com/2012/01/gx-interface-sitting-between-pcrf-and.html
+https://stackoverflow.com/questions/27345342/inode-vs-vnode-difference
+http://searchoracle.techtarget.com/tutorial/Learning-Guide-RDBMS-fundamentals
+https://www.chalkstreet.com/rdbms-tutorials/
+https://www.tutorialspoint.com/sql/sql-rdbms-concepts.htm
+http://www.csc.villanova.edu/~cassel/netbook/ber/node6.html#SECTION00012000000000000000
+https://www.geeksforgeeks.org/use-posix-semaphores-c/
+https://www.electronicsweekly.com/open-source-engineering/linux/multi-thread-or-multi-process-2009-03/
+
+Revise through IPC use cases, multithreading, gdb, valgrind, gprof, epoll example  [Using notes and text files]                                                                                      
+
+Some puzzles
+
+Revise standard data structures
+
+Concurrency, Basic SQL commands, 
+Concurrency: http://databasemanagement.wikia.com/wiki/Concurrency_Control
+	     https://www.linkedin.com/pulse/transactions-concurrency-control-dbms-thiensi-le
+	     https://www.slideshare.net/JankiShah24/concurrency-control-in-database-management-system
+
+
+Previous projects
+
+1. Sandvine work experience:  What was the project about ? Contributions ? [Have an idea about each of those contributions]
+
+
+Understanding of Logging framework [Standard log messages must be logged into a file using there own files, To log into /var/log/messages it uses syslog - https://sematext.com/blog/what-is-syslog-daemons-message-formats-and-protocols/]
+Understanding of PDB variables and there connection with alarms
+Understanding of counters [Unordered map]
+
+
+
+
+
+
+
+
+
+
+
+
