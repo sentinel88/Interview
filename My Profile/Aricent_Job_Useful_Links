@@ -26,3 +26,36 @@ https://ribboncommunications.com/company/media-center/press-releases/sonus-netwo
 https://ribboncommunications.com/company/media-center/blog/give-your-sbc-jolt-intelligence-policy-control
 https://ribboncommunications.com/products/service-provider-products/policy-routing/centralized-policy-and-routing-psx
 https://www.atechnologies.com/sonus-documentation/196-top-10-reasons-to-choose-sonus-enterprise-sbcs/file.html
+https://www.cisco.com/c/en/us/td/docs/ios-xml/ios/voice/cube_proto/configuration/xe-3s/asr1000/cube-proto-xe-3s-asr-1000-book/voi-ip6-voip.pdf
+
+
+
+
+https://www.kamailio.org/events/2014-KamailioWorld/day2/24-Carlos.Ruiz.Diaz-IMS-Application-Servers.pdf
+
+
+
+if endpoint sends request over ipv6 and we are bound on ipv4 only we will not receive that message itself because our port is not listening on ipv6
+if our port is listening on ipv6 port we can reject the call
+and in the reason header we can say 'try ipv4'
+ASX is application server ... it can work as B2BUA as well.
+Sip call can be either a 3PCC call or a B2BUA call.
+Also it can work as a gateway as well.
+In a 3PCC call, endpoint sends request to server via multiple proxy servers, and server is the last node in this call flow.
+Like A is the first end point which sends INVITE and server is let's say D.
+A --> B --> C --> D
+here B and C are either gateway or proxy servers.
+But response can only come from server which is D.
+but in b2bua (back to back user agent) server becomes a middle man.
+Here endpoints are two and server stands in between them.
+Let's say A wants to communicate to C through sip server B
+A --> B --> C
+A <-- B <-- C
+invite goes to B and in invite itself we mention C as the destination, So B will simply see the service as b2b and forwards the invite to C.
+similarly C responds to the invite request and that reaches to B and B forwards the response to A
+lockdown happens between A and C through B.
+Application server is a server which receives the invite from endpoints and manages those calls, decides where the calls needs to be routed.
+when you are using SIP protocol we call it an application server
+when we use megaco we call it as a gateway.
+http://jozjan.s.cnl.sk/dwl/voip/Remote%20Publications/Integrating%20Voice%20over%20IP%20Services%20in%20IPv4%20and%20IPv6%20Networks.pdf
+chk this link for ipv4 to ipv6 cal
