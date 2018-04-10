@@ -1,0 +1,17 @@
+Qubole
+CouchBase
+Rubrik
+Nutanix
+Cohesity
+LinkedIn
+Amazon
+Microsoft
+Google
+Oracle
+Akamai
+Databricks
+Informatica
+Qlik
+AppDynamics
+HortonWorks
+

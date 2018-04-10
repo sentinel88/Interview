@@ -1,0 +1,51 @@
+https://unix.stackexchange.com/questions/33049/check-if-pipe-is-empty-and-run-a-command-on-the-data-if-it-isnt
+
+IPC: http://beej.us/guide/bgipc/html/multi/index.html
+
+https://drive.google.com/open?id=1Ane24VckXBQLKIDiXsTQB6GEe0ZciP_x
+
+https://github.com/millken/c-example/blob/master/epoll-example.c
+http://blog.varunajayasiri.com/epoll.html
+http://www.bogotobogo.com/cplusplus/sockets_server_client.php
+https://stackoverflow.com/questions/8258107/does-connect-block-for-tcp-socket
+https://stackoverflow.com/questions/6187456/tcp-vs-udp-on-video-stream
+
+IPC: http://www.chandrashekar.info/articles/linux-system-programming/introduction-to-linux-ipc-mechanims.html
+
+POSIX Message Queues: http://kirkwylie.blogspot.in/2008/10/posix-message-queues-useful-but-limited.html
+			https://stackoverflow.com/questions/23518491/why-message-queues-are-in-kernel-address-space-but-not-the-shared-memory
+FIFO: 
+	https://askubuntu.com/questions/449132/why-use-a-named-pipe-instead-of-a-file
+	https://www.slideshare.net/tusharkute/implementation-of-fifo-in-linux
+	https://stackoverflow.com/questions/10958438/communication-between-two-processes-using-named-pipes-and-semaphores
+	https://askubuntu.com/questions/449132/why-use-a-named-pipe-instead-of-a-file
+
+https://stackoverflow.com/questions/1428117/linux-ipc-multiple-writers-single-reader
+https://unix.stackexchange.com/questions/68146/what-are-guarantees-for-concurrent-writes-into-a-named-pipe
+
+http://www.cse.psu.edu/~deh25/cmpsc473/programs/semaphore_sample.c
+https://stackoverflow.com/questions/16400820/c-how-to-use-posix-semaphores-on-forked-processes
+
+
+*****Mutex and Semaphores, IPC**********
+https://stackoverflow.com/questions/2287965/difference-between-message-queue-and-shared-memory
+https://stackoverflow.com/questions/62814/difference-between-binary-semaphore-and-mutex?rq=1
+https://stackoverflow.com/questions/2275909/whats-the-advantage-of-queues-over-pipes-when-communicating-between-processes?noredirect=1&lq=1
+
+
+https://www.geeksforgeeks.org/nearly-sorted-algorithm/
+https://www.geeksforgeeks.org/implement-stack-using-priority-queue-or-heap/
+https://www.geeksforgeeks.org/sort-numbers-stored-on-different-machines/
+https://www.geeksforgeeks.org/tournament-tree-and-binary-heap/
+https://www.geeksforgeeks.org/median-of-stream-of-integers-running-integers/
+https://www.geeksforgeeks.org/find-median-bst-time-o1-space/
+https://www.geeksforgeeks.org/data-structure-for-future-reservations-for-a-single-resource/
+https://www.geeksforgeeks.org/given-n-appointments-find-conflicting-appointments/
+https://www.geeksforgeeks.org/find-a-pair-with-given-sum-in-bst/
+https://www.geeksforgeeks.org/kth-smallest-element-in-bst-using-o1-extra-space/
+https://www.geeksforgeeks.org/check-for-identical-bsts-without-building-the-trees/
+
+
+
+
+

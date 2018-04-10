@@ -1,0 +1,29 @@
+https://en.wikipedia.org/wiki/File:Steps_In_a_Translation_Lookaside_Buffer.png
+https://en.wikipedia.org/wiki/Translation_lookaside_buffer
+https://gabrieletolomei.wordpress.com/miscellanea/operating-systems/virtual-memory-paging-and-swapping/
+https://gabrieletolomei.wordpress.com/miscellanea/operating-systems/in-memory-layout/
+https://gabrieletolomei.wordpress.com/miscellanea/operating-systems/multiprogramming-multiprocessing-multitasking-multithreading/
+https://stackoverflow.com/questions/29945171/difference-between-page-table-and-page-directory
+https://www.intel.com/content/www/us/en/architecture-and-technology/64-ia-32-architectures-software-developer-vol-3a-part-1-manual.html
+https://www.kernel.org/doc/gorman/html/understand/understand006.html
+http://bsodtutorials.blogspot.in/2013/12/virtual-to-physical-address-translation_16.html
+https://en.wikipedia.org/wiki/Memory_management_unit
+https://en.wikipedia.org/wiki/Page_fault
+https://en.wikipedia.org/wiki/Paging
+http://www.linuxjournal.com/magazine/completely-fair-scheduler?page=0,1
+https://www.kernel.org/doc/Documentation/scheduler/sched-design-CFS.txt
+
+https://stackoverflow.com/questions/3479330/how-is-malloc-implemented-internally
+https://danluu.com/malloc-tutorial/
+https://sourceware.org/glibc/wiki/MallocInternals
+https://www.quora.com/How-do-free-and-malloc-work-in-C
+
+Malloc will try to allocate logically contiguous memory from heap if available else fail. The reason might be due to fragmentation.
+
+
+
+Page faults: Segmentation fault (Invalid memory access), Missing mapping, Missing mapping and not present in memory (to be paged in from the disk), Same as the last type but the memory maybe full and page replacement algorithm will be used
+
+Windows Internals
+http://bsodtutorials.blogspot.in/2013/12/virtual-to-physical-address-translation.html
+https://www.google.co.in/search?q=&tbm=isch&tbs=rimg:Ce1waYpago7nIjhy4TaMGfkiG1AZu_1chaUvgFBVeix_1pfPWK-hSTCEbngXK33euPZjKlOSR2Ybl_1eghATitbR3-z8CoSCXLhNowZ-SIbEQvkPxNvGq7TKhIJUBm79yFpS-AR_18YbXQ5psz0qEgkUFV6LH-l89REZCEVYTC1agSoSCYr6FJMIRueBESjz2f2AR-b0KhIJcrfd649mMqURqMSVEXIYU18qEgk5JHZhuX96CBHXJl3yvDE2JSoSCUBOK1tHf7PwEbacXdJhk9XI&tbo=u&sa=X&ved=2ahUKEwj1npmgsPXYAhVFP48KHeivB-AQ9C96BAgAEB4&biw=1295&bih=654&dpr=1#imgrc=_

@@ -1,0 +1,194 @@
+Most important link: https://notes.shichao.io/lkd/ch1/
+
+https://www.booleanworld.com/guide-linux-top-command/ [ TOP command tutorial]
+https://linuxaria.com/howto/understanding-the-top-command-on-linux
+https://www.usna.edu/Users/cs/wcbrown/courses/IC221/classes/L09/Class.html
+
+https://www.swiftstack.com/docs/install/configure_networking.html 
+https://askubuntu.com/questions/247625/what-is-the-loopback-device-and-how-do-i-use-it
+https://www.swiftstack.com/docs/install/configure_networking.html
+https://www.cyberciti.biz/faq/linux-list-network-cards-command/
+https://superuser.com/questions/1198292/what-is-pseudo-file-system
+https://www.cyberciti.biz/faq/linux-list-network-cards-command/
+
+File descriptors are local to a process and their values are not unique system wide or across different processes. So 2 processes can have the same file descriptor value. [https://unix.stackexchange.com/questions/28384/how-can-same-fd-in-different-processes-point-to-the-same-file]
+
+The main difference between System V shared memory (shmem) and memory mapped I/O (mmap) is that SystemV shared memory is persistent: unless explicitly removed by a process, it is kept in memory and remains available until the system is shut down. mmap'd memory is not persistent between application executions (unless it is backed by a file).
+
+http://blogs.datalogics.com/2013/09/25/threads-vs-processes-for-program-parallelization/ [Multithreading v/s Multiprocess design decision]
+
+System V is fully supported on all linux kernels. So IPC mechanisms of System V like shared memory and its semaphores are supported as well.
+
+https://stackoverflow.com/questions/368322/differences-between-system-v-and-posix-semaphores
+
+POSIX Shared memory with semaphores example: https://github.com/Jeshwanth/Linux_code_examples/tree/master/POSIX_shm_sem
+				 https://jeshwanth.wordpress.com/2013/04/20/posix-shared-memory-and-semaphore-example-programs/
+
+http://edusagar.com/articles/view/24/inode-and-file-descriptor-table-Interaction
+
+https://stackoverflow.com/questions/258091/when-should-i-use-mmap-for-file-access
+
+
+System V shared memory with examples: http://www.cs.kent.edu/~ruttan/sysprog/lectures/shmem/shared-mem-with-semaphore.c
+https://stereochro.me/assets/uploads/notes/dcom3/shmem.pdf
+
+
+File System: http://www.cs.ucsb.edu/~rich/class/cs170/notes/FileSystem/filetable.rich.jpg
+https://stackoverflow.com/questions/14189944/unix-system-file-tables
+**********http://www2.latech.edu/~box/os/ch11.pdf  [Most important]**********
+
+File System:   Implements resource management and disk scheduling algorithms
+		https://www.cs.hmc.edu/~geoff/classes/hmc.cs134.201209/slides/class20_disks3_beamer.pdf
+
+https://www.youtube.com/watch?v=2tu__ZHC0mI
+http://www.cs.columbia.edu/~krj/os/lectures/L24-IO.pdf
+https://www.slideshare.net/AtiKaBhatti/kernel-io-subsystem-54052409
+https://www.youtube.com/watch?v=D6I3pjDCpLU&list=PL88oxI15Wi4Kw1aEY2bC5l_4pouojjtd4&index=21
+https://www.geeksforgeeks.org/input-output-system-calls-c-create-open-close-read-write/
+http://www.cs.yale.edu/homes/aspnes/pinewiki/InputOutput.html
+http://www.cse.chalmers.se/edu/year/2012/course/EDA092/SLIDES/11-IO-systems.pdf
+http://www.cs.yale.edu/homes/aspnes/pinewiki/FileSystems.html
+
+Difference between concurrency and parallelism
+https://www.quora.com/What-is-the-difference-between-concurrency-and-parallelism
+
+Concurrency:
+http://web.mit.edu/6.005/www/fa14/classes/17-concurrency/
+
+Buffer Cache  https://www.youtube.com/watch?v=yxnIdSI-LSo
+
+IPC: http://beej.us/guide/bgipc/html/multi/index.html
+Performance analysis of IPC mechanisms: http://osnet.cs.binghamton.edu/publications/TR-20070820.pdf
+
+
+https://www.youtube.com/watch?v=MkJfuI5_hjc
+https://www.youtube.com/watch?v=bsjOY7pjQII
+
+https://wiki.osdev.org/Main_Page
+http://www.linuxjournal.com/magazine/completely-fair-scheduler?page=0,1
+https://moythreads.com/wordpress/2009/09/27/quick-tip-for-debugging-deadlocks/
+https://en.wikipedia.org/wiki/User_space
+https://moythreads.com/wordpress/2011/10/06/linux-core-dumps/
+https://en.wikipedia.org/wiki/Strace
+https://en.wikipedia.org/wiki/Segmentation_fault
+General Information: https://technet.microsoft.com/en-us/library/ms178104(v=sql.105).aspx
+http://cmdlinelinux.blogspot.in/2014/01/linux-kernel-deadlocks-and-how-to-avoid.html
+http://sourceware.org/ml/gdb/2008-02/msg00064/stl-views.gdb   [Either source this gdb script file on gdb itself or put it in your .gdbinit file. The .gdbinit file could be created and saved in your home directory. GDB should usually load .gdbinit after we start it. Useful in checking for any STL corruption]
+https://unix.stackexchange.com/questions/116327/loading-of-shared-libraries-and-ram-usage
+
+https://opensource.com/life/16/10/introduction-linux-filesystems
+https://www.ibm.com/developerworks/library/l-linux-filesystem/
+https://en.wikipedia.org/wiki/System_call
+
+
+
+Example:
+gdb /usr/local/freeswitch/bin/freeswitch core.<pid>
+(gdb) set logging file my_back_trace.txt
+(gdb) thread apply all bt full
+(gdb) quit
+
+The recommended settings are:
+
+mkdir -p /var/core
+echo "/var/core/core" > /proc/sys/kernel/core_pattern
+echo 1 > /proc/sys/kernel/core_uses_pid
+You can confirm what you just did with:
+
+cat /proc/sys/kernel/core_pattern
+ 
+cat /proc/sys/kernel/core_uses_pid
+This settings will cause any process in the system that crashes, to dump the core at:
+
+/var/core/core.<pid>
+
+
+Latest versions of CentOS include (with the gdb RPM package) the “gcore” command to do everything for you. You only need to execute:
+
+gcore $(pidof freeswitch)
+
+
+Deadlock causes:
+Incorrect ordering of locks
+Locking repeatedly
+
+Helgrind can detect three classes of errors, which are discussed in detail in the next three sections:
+
+Misuses of the POSIX pthreads API.
+Potential deadlocks arising from lock ordering problems.
+Data races -- accessing memory without adequate locking or synchronisation.
+
+
+
+JAN
+6
+Linux Kernel: Deadlocks and how to avoid them
+
+In this blog post I discuss about the deadlocking problem in linux kernel and how to avoid or detect it.
+
+
+
+Deadlock Problem:
+
+Scenario 1: Self deadlock - "re-acquire lock"
+
+Say there's a thread A, it acquires lock X1 and then before relenquishing the lock, it re-acquires it. This will lead to a deadlock.
+
+
+thread_A()
+{
+    . . .
+    spinlock_lock(&X1)
+    do_some_stuff()
+    spinlock_lock(&X1) //deadlock!!
+    . . .
+    spinlock_unlock(&X1)
+}
+
+
+Scenario 2: ABBA deadlock
+
+Say there're two threads thread A and thread B executing simultaneously and two locks  X1 and X2 (protecting some critical region). A acquires X1 and B acquires X2 and then A tries to acquire X2 and B tries to acquire X1. This will deadlock the both the threads.
+
+thread_A()
+{
+    . . .
+    spinlock_lock(&X1)
+    do_some_stuff()
+    spinlock_lock(&X2) //deadlock if thread_B has already acquired X2 as well as X1
+    . . .
+}
+thread_B()
+{
+    . . .
+    spinlock_lock(&X2)
+    do_some_stuff()
+    spinlock_lock(&X1) //deadlock if thread_A has already acquired X1 as well as X2
+    . . .
+}
+
+
+How to avoid deadlocks (Coding Guidelines):
+
+These guidelines are basically spawned from the kind of deadlocks that exist:
+
+1. Maintain lock order ie where ever multiple locks are being acquired, make sure they are all acquired in the same order otherwise it would lead to a ABBA deadlock situation above.
+
+2. Never re-acquire the same lock that you are holding, be aware the code that will be executed in the current thread, the functions that will be called, so if a lock has been acquired in some upstream function, don't reacquire it!
+
+
+How to detect / solve deadlocks:
+1. Manually inspect the code to check against the coding guidelines above.
+
+2. Run strace -p <pid> and check if the process is stuck in wait.
+
+3. If you suspect your application is *stuck*, do a ps aux|grep <application name>. If the output is "D" (uninterruptible sleep), it *could* mean there's a deadlock in your code. 
+
+4. Linux kernel has an inbuilt feature called lockdep. It can help in pin-pointing the line in code causing the deadlock. See this post (post incomplete, check my answer on stackoverflow instead) on how to detect deadlocks using lockdep.
+
+5. Helgrind
+
+
+Deadlocks (if very few), don't always need taking care of since it'll require too much effort and won't affect the system performance much, one can just reboot and get going, as Tom West said, "Not everything worth doing is worth doing well"
+Problems like these often result in unreproducible, timing-dependent crashes, deadlocks and other misbehaviour, and can be difficult to find by other means.
+

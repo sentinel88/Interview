@@ -1,0 +1,48 @@
+http://maxim.int.ru/bookshelf/PthreadsProgram/htm/r_40.html [Handling signals in a multithreaded process. Very important]
+
+https://stackoverflow.com/questions/4544234/calling-pthread-cond-signal-without-locking-mutex
+https://linux.die.net/man/3/pthread_cond_signal
+https://askldjd.com/2010/04/24/the-lost-wakeup-problem/
+https://stackoverflow.com/questions/22427493/lost-wakeups-in-pthreads
+http://blogs.grammatech.com/multi-core-processors-headache-for-multithreaded-code
+http://blogs.grammatech.com/fun-with-concurrency-problems
+https://stackoverflow.com/questions/11835046/multithreading-and-multicore-differences
+https://en.wikipedia.org/wiki/Thread_safety
+https://stackoverflow.com/questions/261683/what-is-meant-by-thread-safe-code
+http://www.yolinux.com/TUTORIALS/LinuxTutorialPosixThreads.html
+https://www.geeksforgeeks.org/priority-inversion-what-the-heck/
+https://barrgroup.com/Embedded-Systems/How-To/RTOS-Mutex-Semaphore
+https://stackoverflow.com/questions/34519/what-is-a-semaphore
+https://stackoverflow.com/questions/26217282/the-usage-case-of-counting-semaphore
+https://en.wikipedia.org/wiki/Spinlock
+https://stackoverflow.com/questions/1957398/what-exactly-are-spin-locks
+https://scalibq.wordpress.com/2012/06/01/multi-core-and-multi-threading/
+
+Spurious wakeup problem: https://softwareengineering.stackexchange.com/questions/186842/spurious-wakeups-explanation-sounds-like-a-bug-that-just-isnt-worth-fixing-is
+https://stackoverflow.com/questions/1050592/do-spurious-wakeups-actually-happen	
+
+
+Lost wakeup problem: 1 producer and 2 consumers,   Producers pushing 2 items into the queue one after another. Inside the push routine, if the queue size is seen to be 1 then a thread will be notified.
+
+
+http://www.drdobbs.com/cpp/multithreaded-debugging-techniques/199200938?pgno=6 
+
+https://stackoverflow.com/questions/4039899/when-should-we-use-mutex-and-when-should-we-use-semaphore?noredirect=1&lq=1
+https://stackoverflow.com/questions/5454746/pthread-mutex-lock-unlock-by-different-threads?noredirect=1&lq=1
+https://stackoverflow.com/questions/187761/recursive-lock-mutex-vs-non-recursive-lock-mutex?rq=1
+
+
+Threads in the same process share:
+Process instructions
+Most data
+open files (descriptors)
+signals and signal handlers
+current working directory
+User and group id
+Each thread has a unique:
+Thread ID
+set of registers, stack pointer
+stack for local variables, return addresses
+signal mask
+priority
+Return value: errno

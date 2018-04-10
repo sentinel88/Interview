@@ -1,0 +1,22 @@
+https://stackoverflow.com/questions/2303516/writing-a-portable-c-program-which-things-to-consider
+https://www.quora.com/Why-C-is-called-a-portable-language
+Use posix
+Use standard types, ex: uint32_t instead of "usigned long int"
+Code that’s intended to run on numerous platforms will have at least some macros that define the properties of the environment that the code needs to know, such as
+#if defined(X86)
+#define LITTLE_ENDIAN
+#elif defined(COLDFIRE)
+#define BIG_ENDIAN
+#elif defined(ARM)
+#define BI_ENDIAN
+#endif
+https://www.edn.com/electronics-blogs/embedded-basics/4440027/7-tips-for-writing-portable-C-code
+
+Avoiding bit fields: Every compiler vendor has the freedom has to how they want to implement this C standard like how the bits will be ordered, endianness.
+
+
+
+Factors:
+
+Different endianness, Different character encodings
+Continuous build system in place, preferable builds on various target platforms so that issues can be caught quickly.

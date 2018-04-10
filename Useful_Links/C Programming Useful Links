@@ -1,0 +1,23 @@
+https://stackoverflow.com/questions/6774759/in-c-is-it-valid-to-declare-a-variable-multiple-times
+https://softwareengineering.stackexchange.com/questions/358557/why-c-allows-multiple-global-declarations-of-the-same-variable-but-not-multiple
+https://stackoverflow.com/questions/15734699/in-c-why-is-multiple-declarations-working-fine-for-a-global-variable-but-not-for
+https://stackoverflow.com/questions/1410563/what-is-the-difference-between-a-definition-and-a-declaration?noredirect=1&lq=1
+https://stackoverflow.com/questions/1433204/how-do-i-use-extern-to-share-variables-between-source-files?noredirect=1&lq=1
+
+Where are literal constants stored ? 
+https://stackoverflow.com/questions/21735890/where-and-how-are-constants-stored
+
+Literal constants are stored in text segment as part of the instruction
+
+Even constants like "const int i = 5" can be stored as part of the instructions if the compiler finds in the program, that there is no need for its address.
+
+https://leanpub.com/patternsinc
+http://learnlinuxconcepts.blogspot.in/2014/03/process-management.html
+
+
+Malloc implementations:
+
+http://gee.cs.oswego.edu/dl/html/malloc.html
+https://people.freebsd.org/~jasone/jemalloc/bsdcan2006/jemalloc.pdf
+
+

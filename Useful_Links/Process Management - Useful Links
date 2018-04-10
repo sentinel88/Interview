@@ -1,0 +1,35 @@
+https://unix.stackexchange.com/questions/75270/what-is-user-address-space-and-what-is-its-purpose
+https://manybutfinite.com/post/anatomy-of-a-program-in-memory/
+https://manybutfinite.com/post/kernel-boot-process/
+https://manybutfinite.com/post/system-calls/
+https://manybutfinite.com/post/kernel-boot-process/
+https://manybutfinite.com/post/getting-physical-with-memory/
+https://manybutfinite.com/post/when-does-your-os-run/
+https://manybutfinite.com/post/page-cache-the-affair-between-memory-and-files/
+https://manybutfinite.com/post/cpu-rings-privilege-and-protection/
+https://manybutfinite.com/post/memory-translation-and-segmentation/
+https://manybutfinite.com/post/how-the-kernel-manages-your-memory/
+https://en.wikipedia.org/wiki/Page_table
+https://stackoverflow.com/questions/3850950/how-linux-operatin-g-system-maintains-page-table
+https://www.kernel.org/doc/gorman/html/understand/understand006.html
+https://unix.stackexchange.com/questions/116327/loading-of-shared-libraries-and-ram-usage
+http://www.informit.com/articles/article.aspx?p=29961&seqNum=2
+
+
+
+https://gist.github.com/CMCDragonkai/10ab53654b2aa6ce55c11cfc5b2432a4
+http://www.tldp.org/LDP/tlk/mm/memory.html
+
+
+A possible getPid implementation
+
+To return unique pids everytime, some data structure will have to be used which can keep track of used and free slots in the range of 0 to MAX. We can start off with an array of initial SIZE say 100 and then keep resizing it. The next available pid will always be given back as the return value for getPid. 
+
+Ex: If 0 to 80 are all occupied then the next pid to be returned will be 81. In case the process with pid 45 dies then the next free pid available is 45. The next_free_slot at 45 will point to 81 and this is how the list of free slots can be maintained. Initially the whole array of structures would be initialized with every next_free_slot set to (index + 1)
+
+
+
+
+
+
+

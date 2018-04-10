@@ -1,0 +1,49 @@
+https://superuser.com/questions/315352/what-is-the-difference-between-a-subnet-mask-and-a-netmask
+https://stackoverflow.com/questions/26455843/how-are-array-values-stored-in-little-endian-vs-big-endian-architecture
+https://stackoverflow.com/questions/3229860/what-is-the-meaning-of-so-reuseaddr-setsockopt-option-linux
+https://stackoverflow.com/questions/6187456/tcp-vs-udp-on-video-stream
+https://en.wikipedia.org/wiki/Subnetwork
+https://serverfault.com/questions/894488/how-bad-is-ipv4-address-exhaustion-really
+https://www.youtube.com/watch?v=2hUUaG4o3DA
+http://www.fixedbyvonnie.com/2014/06/display-routing-table-windows-linux/#.WqihJMx948o
+https://www.youtube.com/watch?v=zhlMLRNY5-4
+https://community.fs.com/blog/layer-2-switch-vs-layer-3-switch-which-one-do-you-need.html
+https://networkengineering.stackexchange.com/questions/29272/what-is-the-difference-between-layer-2-and-layer-3-broadcasts-please-explain-wi
+https://www.juniper.net/documentation/en_US/junos/topics/concept/vlans-qfx-series-understanding.html
+
+https://medium.com/@maneesha.wijesinghe1/what-happens-when-you-type-an-url-in-the-browser-and-press-enter-bb0aa2449c1a
+
+
+
+TCP
+Flow control (Mechanisms to prevent the sender from overwhelming the receiver), Congestion control (Mechanisms to prevent a node from overwhelming the network), Reliability, Error Control
+https://www.noction.com/blog/tcp-transmission-control-protocol-congestion-control
+https://www.youtube.com/watch?v=F27PLin3TV0&list=PLowKtXNTBypH19whXTVoG3oKSuOcw_XeW&index=13
+	Every TCP session maintains its own cwnd (congestion window) value to work with.
+http://www.brianstorti.com/tcp-flow-control/
+https://www.geeksforgeeks.org/computer-network-tcp-timers/
+Retransmission timer, keepalive timer, persistent timer, Time wait timer
+
+UDP
+
+DHCP
+	https://www.slashroot.in/how-configure-router-work-dhcp-server
+	https://www.geeksforgeeks.org/how-dhcp-server-dynamically-assigns-ip-address-to-a-host/
+	https://www.youtube.com/watch?v=k4t-NJrKLgM
+
+ICMP
+	https://www.geeksforgeeks.org/internet-control-message-protocol-icmp/
+
+Unix Domain sockets v/s Internet sockets
+https://lists.freebsd.org/pipermail/freebsd-performance/2005-February/001143.html
+https://blog.myhro.info/2017/01/how-fast-are-unix-domain-sockets
+
+
+ARP, IP
+https://www.youtube.com/watch?v=xNbdeyEI-nE&index=10&list=PLowKtXNTBypH19whXTVoG3oKSuOcw_XeW
+https://www.geeksforgeeks.org/computer-networks-longest-prefix-matching-in-routers/
+http://www.inetdaemon.com/tutorials/basic_concepts/communication/segmentation_and_reassembly.shtml
+https://stackoverflow.com/questions/15999739/ip-fragmentation-and-reassembly
+
+What happens when we browse for a web page: 
+https://medium.com/@maneesha.wijesinghe1/what-happens-when-you-type-an-url-in-the-browser-and-press-enter-bb0aa2449c1a
