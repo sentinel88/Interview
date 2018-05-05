@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 void 
 swap(char *str1, char *str2)
@@ -11,15 +12,19 @@ swap(char *str1, char *str2)
 	char temp;
 	while (len)
 	{
-		if (!*str1 || !*str2)
-			break;
 		temp = str1[i];
 		str1[i] = str2[i];
 		str2[i] = temp;
 		len--;
 		i++;
-		str1++;
-		str2++;
+	}
+	if (!str1[i])
+	{
+		strcat(&str1[i], &str2[i]);
+		str2[i] = '\0';
+	} else {
+		strcat(&str2[i], &str1[i]);
+		str1[i] = '\0';
 	}
 }
 
@@ -30,6 +35,6 @@ main(int argc, char *argv[])
 	char str1[10] = "geeks";
 	char str2[10] = "forgeeks";
 	swap(str1, str2);
-	printf("str1: %s, str2: %s", str1, str2);
+	printf("str1: %s, str2: %s\n", str1, str2);
 	return 0;
 }
