@@ -4,6 +4,13 @@
 #include <stdbool.h>
 
 
+typedef struct
+{
+	unsigned int x:2;
+	unsigned int y:3;
+} bitfields;
+
+
 static bool
 isRotate(unsigned int x, unsigned int y)
 {
@@ -24,11 +31,13 @@ main (int argc, char *argv[])
 {
 	unsigned int x = 123;
 	unsigned int y = 2147483678;
+	bitfields var;
 	
 	if (isRotate(x, y))
 		printf("\nTrue\n");
 	else
 		printf("\nFalse\n");
-	
+	printf("\nSizeof struct var is %lu\n", sizeof(var));
+
 	return 0;
 }
