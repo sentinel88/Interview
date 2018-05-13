@@ -6,26 +6,29 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
-#define ALPHABET_SIZE 26
+#define ALPHABET_SIZE 52
 
 typedef struct node
 {
-	char ch;
+	//char ch;
 	bool isleaf;
 	struct node *next[ALPHABET_SIZE];	
-} Node;
+} trieNode;
 
 
 Node *
-getNode (char ch);
-
-int 
-addWord (char *word);
+getNode (void);
 
 int
-removeWord (char *word);
+removeNode (trieNode *ptr);
 
 int 
-searchWord (char *word);
+addWord (const char *word);
+
+int
+removeWord (const char *word);
+
+int 
+searchWord (const char *word);
 
 #endif
