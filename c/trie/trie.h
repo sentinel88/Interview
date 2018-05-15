@@ -22,6 +22,9 @@ getNode (void);
 int
 removeNode (trieNode *);
 
+void 
+cleanup (trieNode **);
+
 int 
 addWord (trieNode **, const char *);
 

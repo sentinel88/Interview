@@ -48,6 +48,9 @@ main (int argc, char *argv[])
 		if (ch >= 5)
 			break;
 	}
+
+	if (root)
+		cleanup(&root);
 		
 	return 0;
 }

@@ -41,6 +41,24 @@ removeNode (trieNode *ptr)
 }
 
 
+void
+cleanup (trieNode **root)
+{
+	if (isLeafNode(*root))
+	{
+		return;
+	}
+	for (int i = 0; i < ALPHABET_SIZE; i++)
+	{
+		if ((*root)->next[i])
+		{
+			cleanup((*root)->next[i]);
+			removeNode((*root)->next[i]);
+		}
+	}
+}
+
+
 Node *
 getNode (void)
 {
