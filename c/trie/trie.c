@@ -3,8 +3,13 @@
 #include <stdbool.h>
 #include "trie.h"
 
+#define MAX_WORD_SIZE 100
+
 #define char2ascii(char ch) \
 	(ch > 96)? (ch - 96) : (26 + (ch - 65))
+
+#define ascii2char(int val) \
+	(val < 27)? (96 + val) : (val - 26 + 65)
 
 
 static int
@@ -55,12 +60,13 @@ int
 addWord (trieNode **root, const char *word)
 {
 	int i = 0;
-	trieNode *temp = *root;
+	trieNode *temp = NULL;
 
 	if (*root == NULL)
 	{
 		*root = getNode();
 	}
+	*temp = *root;
 	while (word[i] != '\0')
 	{
 		int index = char2ascii(word[i]);
@@ -125,4 +131,36 @@ searchWord (trieNode *root, char *word)
 		return 0;
 
 	return -1;
+}
+
+
+void
+_display (trieNode *root, char *word, int index)
+{
+	if (root == NULL)
+		return;
+	if (root->isleaf == true)
+	{
+		word[index] = '\0';
+		printf("%s\n", word);
+	}
+		
+	for (int i = 0; i < ALPHABET_SIZE; i++)
+	{
+		if (!root->next[i])
+			continue;
+		//printf("%c", ascii2char(i));
+		word[index] = ascii2char(i);
+		display(root->next[i], word, index + 1);
+	}
+}
+
+
+void
+display (trieNode *root)
+{
+	char word[MAX_WORD_SIZE];
+	
+	memset(word, 0, MAX_WORD_SIZE);
+	_display(root, word, 0);
 }

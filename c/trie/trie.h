@@ -20,15 +20,22 @@ Node *
 getNode (void);
 
 int
-removeNode (trieNode *ptr);
+removeNode (trieNode *);
 
 int 
-addWord (const char *word);
+addWord (trieNode **, const char *);
 
 int
-removeWord (const char *word);
+removeWord (trieNode **, const char *);
 
 int 
-searchWord (const char *word);
+searchWord (trieNode *, const char *);
+
+
+static void
+_display (trieNode *, char *, int);
+
+void
+display (trieNode *);
 
 #endif
