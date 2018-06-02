@@ -1,0 +1,7 @@
+1.   Calculation of the middle position for an array using its lower and higher index. Should be very careful here as an overflow
+     might occur while adding low + high. Instead use (low + (high - low))/2
+
+2.   Similar case applies when running a loop on an unsigned integer variable. Care should be taken while decrementing the loop index
+     variable below 0 or above MAX value.
+
+3.   

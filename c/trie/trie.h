@@ -6,7 +6,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
-#define ALPHABET_SIZE 52
+#define MAX_WORD_SIZE 100
 
 typedef struct node
 {
@@ -16,7 +16,7 @@ typedef struct node
 } trieNode;
 
 
-Node *
+trieNode *
 getNode (void);
 
 int
