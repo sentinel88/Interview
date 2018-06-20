@@ -1,0 +1,14 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int
+main (int argc, char *argv[])
+{
+	int arr[] = {0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1};
+	int size = sizeof(arr) / sizeof(arr[0]);
+
+	printf("\nAmount of rain water trapped in the vessel is: %d\n", amtOfWater(arr, size));
+	
+	return 0;
+}
