@@ -43,6 +43,7 @@ main (int argc, char *argv[])
 	cout <<"Unique ownership semantics demo" <<endl;
 	{
 		unique_ptr<B> p(new B());
+		//p.reset();
 		auto q = pass_through(std::move(p));
 	}
 	cout <<"Runtime polymorphism demo" <<endl;
