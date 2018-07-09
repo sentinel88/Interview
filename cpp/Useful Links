@@ -13,3 +13,23 @@ https://stackoverflow.com/questions/5467956/c-vptr-vtbl-associated-with-object-o
 https://www.geeksforgeeks.org/templates-cpp/
 
 https://www.codeproject.com/Articles/363338/Factory-Pattern-in-Cplusplus
+
+
+
+
+C++ 11
+
+https://www.youtube.com/watch?v=U6mgsPqV32A (C++ 11 - Part 1)
+https://www.youtube.com/watch?v=Lt0ASrloGSE (C++ - Part 2)
+https://www.youtube.com/watch?v=qUDAkDvoLas (Shared pointers)
+https://www.youtube.com/watch?v=n10ERmH8bYk (Shared pointers Part 2)
+https://stackoverflow.com/questions/43596430/push-back-vs-emplace-back-to-a-stdvectorstdstring
+
+Use cases:
+
+https://stackoverflow.com/questions/23104945/c11-smart-pointers-use-cases
+https://www.reddit.com/r/cpp/comments/5do55l/heres_everything_i_know_about_shared_ptr/
+https://shaharmike.com/cpp/shared-ptr/
+https://en.cppreference.com/w/cpp/memory/unique_ptr
+
+make_shared and make_new help the programmer from avoiding to use new and delete operators manually

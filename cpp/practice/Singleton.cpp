@@ -7,12 +7,14 @@ class Singleton
 {
 	private:
 		Singleton();
+		Singleton(const Singleton&);
+		Singleton& operator=(const Singleton &) { return *this; }
 		int m_value;
 	public:
 		//static Singleton *getInstance();
 		static Singleton &getInstance();
-		Singleton(const Singleton&) = delete;
-		Singleton& operator=(const Singleton&) = delete;
+//		Singleton(const Singleton&) = delete;
+//		Singleton& operator=(const Singleton&) = delete;
 		int getValue() const;
 		void setValue(int);
 };
@@ -44,6 +46,7 @@ Singleton::setValue(int inVal)
 	m_value = inVal;
 }
 
+#define SINGLETON (Singleton::getInstance())
 
 int
 main (int argc, char *argv[])
@@ -55,8 +58,10 @@ main (int argc, char *argv[])
 	obj2->setValue(10);
 	cout <<obj2->getValue() <<endl;*/
 	//Singleton obj = Singleton::getInstance();
-	(Singleton::getInstance()).setValue(10);
-	cout <<(Singleton::getInstance()).getValue() <<endl;
+	//(Singleton::getInstance()).setValue(10);
+	//cout <<(Singleton::getInstance()).getValue() <<endl;
+	SINGLETON.setValue(10);
+	cout <<SINGLETON.getValue() <<endl;
 
 	return 0;
 }
