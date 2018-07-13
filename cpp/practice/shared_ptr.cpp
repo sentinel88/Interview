@@ -25,12 +25,13 @@ void
 thr(shared_ptr<Base> p)
 {
 	shared_ptr<Base>lp = p;
+	this_thread::sleep_for(std::chrono::seconds(1));
 	{
 		static mutex io_mutex;
 		lock_guard<mutex> lk(io_mutex);
 		cout <<"local shared pointer in a thread" <<endl
-		     <<"lp.get(): " <<lp.get()
-		     <<"lp.use_count(): "<<lp.use_count() <<endl;
+		     <<"lp.get(): " <<p.get()
+		     <<"lp.use_count(): "<<p.use_count() <<endl;
 	}
 }
 
@@ -45,8 +46,8 @@ main (int argc, char *argv[])
 	     <<"Use count: "<<p.use_count() <<endl;
 
 	thread t1(thr, p), t2(thr, p), t3(thr, p);
-	cout <<"Shared owndership between 3 threads and released" <<endl
-	     <<"Owndership from main: " <<endl;
+	cout <<"Shared owndership between 3 threads and released\n"
+	     <<"Ownership from main: " <<endl;
 	cout <<"get: " <<p.get()
 	     <<"Use count: "<<p.use_count() <<endl;
 	t1.join(); t2.join(); t3.join();

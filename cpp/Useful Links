@@ -15,6 +15,9 @@ https://www.geeksforgeeks.org/templates-cpp/
 https://www.codeproject.com/Articles/363338/Factory-Pattern-in-Cplusplus
 
 
+UML Diagrams
+https://www.youtube.com/watch?v=UI6lqHOVHic
+
 
 
 C++ 11
@@ -24,6 +27,9 @@ https://www.youtube.com/watch?v=Lt0ASrloGSE (C++ - Part 2)
 https://www.youtube.com/watch?v=qUDAkDvoLas (Shared pointers)
 https://www.youtube.com/watch?v=n10ERmH8bYk (Shared pointers Part 2)
 https://stackoverflow.com/questions/43596430/push-back-vs-emplace-back-to-a-stdvectorstdstring
+https://en.cppreference.com/w/cpp/memory/unique_ptr
+https://en.cppreference.com/w/cpp/memory/shared_ptr
+https://mbevin.wordpress.com/2012/11/18/smart-pointers/
 
 Use cases:
 
